@@ -1,10 +1,10 @@
 export const SITE = {
-  name: "KINETIQ",
+  name: "EVRION",
   tagline: "We engineer digital momentum",
-  email: "hello@kinetiq.studio",
-  url: "https://kinetiq.studio",
+  email: "hello@evrion.studio",
+  url: "https://evrion.studio",
   description:
-    "Kinetiq is a digital product studio crafting premium websites, software, and mobile experiences for ambitious teams of every size.",
+    "Evrion is a digital product studio crafting premium websites, software, and mobile experiences for ambitious teams of every size.",
 };
 
 export const NAV_LINKS = [
@@ -519,9 +519,9 @@ export const LAB_ENTRIES: LabEntry[] = [
 
   // ---- On the bench (in progress) ------------------------------------------
   {
-    id: "kinetiq-os",
+    id: "evrion-os",
     group: "ongoing",
-    title: "Kinetiq OS",
+    title: "Evrion OS",
     kind: "Internal tooling",
     type: "Studio",
     status: { label: "In progress", tone: "progress" },
@@ -746,13 +746,13 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Kinetiq operates like a senior product team that happens to sit outside our building. They challenged our assumptions, then shipped a platform our users genuinely love.",
+      "Evrion operates like a senior product team that happens to sit outside our building. They challenged our assumptions, then shipped a platform our users genuinely love.",
     name: "Sarah Lindqvist",
     role: "VP of Product, Helios Grid",
   },
   {
     quote:
-      "We interviewed nine agencies. Kinetiq was the only one that talked about our business model before talking about technology. They've been our team ever since.",
+      "We interviewed nine agencies. Evrion was the only one that talked about our business model before talking about technology. They've been our team ever since.",
     name: "Marcus Chen",
     role: "CEO, Atlas Freight",
   },
@@ -1528,7 +1528,7 @@ export const ARTICLES: Article[] = [
     title: "Ship the boring version first",
     excerpt:
       "The fastest way to learn whether an idea works is to build the least clever thing that could possibly test it — then earn the right to add the magic.",
-    author: "Kinetiq Team",
+    author: "Evrion Team",
     date: "2026-05-28",
     readingTime: "5 min read",
     body: [
@@ -1544,7 +1544,7 @@ export const ARTICLES: Article[] = [
     title: "Senior-only is a feature, not a flex",
     excerpt:
       "Staffing every project with people who've shipped for a decade isn't about ego. It's the cheapest way we've found to protect a timeline.",
-    author: "Kinetiq Team",
+    author: "Evrion Team",
     date: "2026-04-15",
     readingTime: "4 min read",
     body: [
@@ -1560,7 +1560,7 @@ export const ARTICLES: Article[] = [
     title: "Design and engineering shouldn't be a handoff",
     excerpt:
       "The seam between a design file and a codebase is where most products lose their polish. The fix is to stop treating it as a seam.",
-    author: "Kinetiq Team",
+    author: "Evrion Team",
     date: "2026-03-02",
     readingTime: "6 min read",
     body: [

@@ -119,7 +119,7 @@ export default function Hero() {
           transition={{ delay: entryDelay + 0.7, duration: 0.8, ease: "easeOut" }}
           className="mt-8 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
         >
-          Kinetiq is the technology partner behind ambitious teams of every size
+          Evrion is the technology partner behind ambitious teams of every size
           — designing and engineering software people actually love to use.
         </motion.p>
 

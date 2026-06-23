@@ -112,11 +112,30 @@ main section {
   background-clip: text;
 }
 
+/* The single horizontal lever for every section. Up to ~1565px viewport the
+   clamp resolves to 90rem (1440px), so phones, tablets, and laptops render
+   exactly as before. Past that it tracks 92vw — letting a 27" 1440p panel or
+   an ultrawide spread into what used to be dead gutters — and caps at 150rem
+   so a 4K/8K display doesn't stretch line lengths to infinity. Expressed in
+   rem so it grows in lockstep with the large-screen scale-up below. */
 @utility container-x {
   margin-inline: auto;
   width: 100%;
-  max-width: 1440px;
+  max-width: clamp(90rem, 92vw, 150rem);
   padding-inline: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* Gentle proportional scale-up for genuinely large displays (TVs, projectors,
+   4K+ desk panels). Below 2560px the root stays at 16px, so a standard 27"
+   1440p monitor keeps normal type — it's handled by the wider container alone.
+   Above that, every rem-based size (type, spacing, the container cap) grows
+   together so the design fills the wall instead of floating in the middle.
+   Media-query rem/vw resolve against the initial 16px, so breakpoints are
+   unaffected and the ramp starts seamlessly at exactly 16px. */
+@media (min-width: 2560px) {
+  :root {
+    font-size: clamp(16px, 0.55vw, 24px);
+  }
 }
 
 /* Grain overlay — adds analog texture over the dark canvas */

@@ -14,7 +14,7 @@ export default function WhyUs() {
         <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
           <div className="lg:sticky lg:top-32 lg:self-start">
             <SectionHeading
-              label="Why Kinetiq"
+              label="Why Evrion"
               title="Most agencies build software. We build conviction."
             />
             <motion.p

@@ -10,7 +10,7 @@ import {
 
 /**
  * Builds the concierge system prompt from the site's own content, so the
- * assistant answers from Kinetiq's real services, pricing, process, and work
+ * assistant answers from Evrion's real services, pricing, process, and work
  * rather than inventing them. Imported server-side only (in the API route).
  */
 export function buildSystemPrompt(): string {

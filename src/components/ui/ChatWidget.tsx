@@ -218,7 +218,7 @@ export default function ChatWidget() {
                 ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about Kinetiq…"
+                placeholder="Ask about Evrion…"
                 maxLength={2000}
                 className="flex-1 rounded-full border border-line bg-base px-4 py-2.5 text-sm text-foreground outline-none transition-colors placeholder:text-faint focus:border-iris/50"
               />
