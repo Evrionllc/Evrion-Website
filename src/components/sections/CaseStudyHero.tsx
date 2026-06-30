@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Code2, ArrowUpRight } from "lucide-react";
 import ProjectVisual from "@/components/ui/ProjectVisual";
 import RevealText from "@/components/ui/RevealText";
 import { type Project } from "@/lib/data";
@@ -66,6 +66,38 @@ export default function CaseStudyHero({ project }: { project: Project }) {
         >
           {project.description}
         </motion.p>
+
+        {(project.repo || project.liveUrl) && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: entryDelay + 0.55, duration: 0.7, ease: "easeOut" }}
+            className="mt-8 flex flex-wrap items-center gap-3"
+          >
+            {project.repo && (
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-line px-5 font-mono text-xs tracking-[0.2em] text-muted uppercase transition-colors hover:border-mint hover:text-foreground"
+              >
+                <Code2 className="h-3.5 w-3.5" />
+                View source
+              </a>
+            )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="group inline-flex min-h-11 items-center gap-2 rounded-full bg-foreground px-5 font-mono text-xs tracking-[0.2em] text-background uppercase transition-opacity hover:opacity-90"
+              >
+                Visit live
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </a>
+            )}
+          </motion.div>
+        )}
 
         <motion.dl
           initial={{ opacity: 0, y: 16 }}

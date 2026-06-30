@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import gsap from "gsap";
@@ -64,30 +65,43 @@ function ProjectCard({ project, flip }: { project: Project; flip: boolean }) {
               ref={innerRef}
               className="absolute -inset-y-[12%] inset-x-0 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
             >
-              {/* Original generative artwork: gradient field + ring + grid */}
-              <div className={cn("absolute inset-0 bg-gradient-to-br", project.hue)} />
-              <div
-                className="absolute inset-0 opacity-[0.13]"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                  backgroundSize: "56px 56px",
-                }}
-              />
-              <div
-                className="absolute top-1/2 left-1/2 h-[55%] w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full border opacity-60 transition-transform duration-700 group-hover:rotate-45"
-                style={{ borderColor: project.accent, borderWidth: 1.5 }}
-              />
-              <div
-                className="absolute top-1/2 left-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl will-change-transform"
-                style={{ background: project.accent, opacity: 0.35 }}
-              />
-              <span
-                aria-hidden="true"
-                className="absolute right-[8%] bottom-[8%] font-display text-7xl font-bold tracking-tighter text-white/10 sm:text-8xl"
-              >
-                {project.index}
-              </span>
+              {project.heroImage ? (
+                /* Real project screenshot */
+                <Image
+                  src={project.heroImage}
+                  alt={`${project.title} — project preview`}
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover"
+                />
+              ) : (
+                <>
+                  {/* Original generative artwork: gradient field + ring + grid */}
+                  <div className={cn("absolute inset-0 bg-gradient-to-br", project.hue)} />
+                  <div
+                    className="absolute inset-0 opacity-[0.13]"
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                      backgroundSize: "56px 56px",
+                    }}
+                  />
+                  <div
+                    className="absolute top-1/2 left-1/2 h-[55%] w-[55%] -translate-x-1/2 -translate-y-1/2 rounded-full border opacity-60 transition-transform duration-700 group-hover:rotate-45"
+                    style={{ borderColor: project.accent, borderWidth: 1.5 }}
+                  />
+                  <div
+                    className="absolute top-1/2 left-1/2 h-[30%] w-[30%] -translate-x-1/2 -translate-y-1/2 rounded-full blur-2xl will-change-transform"
+                    style={{ background: project.accent, opacity: 0.35 }}
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute right-[8%] bottom-[8%] font-display text-7xl font-bold tracking-tighter text-white/10 sm:text-8xl"
+                  >
+                    {project.index}
+                  </span>
+                </>
+              )}
             </div>
           </div>
         </FluidFrame>
