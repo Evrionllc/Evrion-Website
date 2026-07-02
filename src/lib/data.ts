@@ -306,6 +306,72 @@ export const PROJECTS: Project[] = [
   },
   {
     index: "03",
+    slug: "streaklet",
+    title: "Streaklet",
+    category: "Mobile App · Habits",
+    year: "2025",
+    description:
+      "A fully offline iOS habit tracker built with SwiftUI and SwiftData — one-tap logging, four frequency modes, streaks and completion rates derived from history, and a heatmap of every day you showed up.",
+    hue: "from-blue-500/40 via-indigo-600/20 to-transparent",
+    accent: "#3b82f6",
+    repo: "https://github.com/Evrionllc/Habit-Tracker-App",
+    heroImage: "/work/streaklet/hero.png",
+    meta: [
+      { label: "Project", value: "Streaklet" },
+      { label: "Year", value: "2025" },
+      { label: "Discipline", value: "iOS · SwiftUI" },
+      { label: "Stack", value: "SwiftUI · SwiftData" },
+    ],
+    sections: [
+      {
+        id: "context",
+        label: "Context",
+        body: [
+          "Streaklet is a native iOS habit tracker: create habits to build or break, log them with a single tap, and watch streaks grow. It's built entirely with SwiftUI and SwiftData, with no third-party dependencies and no network anywhere — everything lives on the device.",
+          "The whole app is organized around one daily moment: open it, see exactly what's due today, and tick things off in a second.",
+        ],
+      },
+      {
+        id: "challenge",
+        label: "Challenge",
+        body: [
+          "Habit apps quietly rot when their numbers drift. If a streak or completion rate is stored and then updated by hand, a single missed write or an edited log leaves the stats lying — and a habit tracker that lies about your streak is worse than none.",
+          "It also had to respect real life: partial progress, back-dating a missed day, four different frequency rules, and a Today screen that shows only what's actually due — all while staying fast and fully offline.",
+        ],
+      },
+      {
+        id: "approach",
+        label: "Approach",
+        body: [
+          "Streaks, longest streaks, and completion rates are never stored — they're derived on the fly from the log of completions against each habit's frequency. That single decision means the stats can't drift out of sync, because there's nothing to keep in sync.",
+          "Logging supports partial progress and back-dating via a week strip, reminders run through local notifications with no server, and the whole thing ships with onboarding templates, dark mode, haptics, a reorderable list, and JSON export.",
+        ],
+      },
+      {
+        id: "outcome",
+        label: "Outcome",
+        body: [
+          "The result is a complete, offline-first tracker: a Today view that surfaces only what's due, a Stats screen with completion charts and current streaks, and a per-habit detail with a history heatmap and 30-day trend.",
+          "Because it's dependency-free and local-first, it launches instantly, works with no signal, and keeps every byte of habit data on the user's phone.",
+        ],
+      },
+      {
+        id: "technical-detail",
+        label: "Technical Detail",
+        body: [
+          "Built for iOS with SwiftUI and SwiftData for local persistence, Swift Charts for the trend and heatmap, and UNUserNotificationCenter for offline reminders. Habit and HabitLog are the only stored models; HabitStats is computed, never saved.",
+          "Empty and permission-denied states, a completion animation, and a debug demo-seed for screenshots round out a genuinely shippable app.",
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/work/streaklet/1.png", caption: "Today and Stats — one-tap logging, streaks, and completion", span: "wide" },
+      { src: "/work/streaklet/2.png", caption: "Per-habit detail with a history heatmap and 30-day trend" },
+      { src: "/work/streaklet/3.png", caption: "Reminders, themes, and JSON data export" },
+    ],
+  },
+  {
+    index: "04",
     slug: "emberhaus",
     title: "Emberhaus",
     category: "E-commerce · Storefront",
@@ -371,7 +437,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    index: "04",
+    index: "05",
     slug: "haven-finch",
     title: "Haven & Finch",
     category: "Web Platform · Real Estate",
@@ -437,7 +503,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    index: "05",
+    index: "06",
     slug: "ascend-academy",
     title: "Ascend Academy",
     category: "SaaS Platform · Education",
@@ -503,7 +569,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    index: "06",
+    index: "07",
     slug: "physics-lab",
     title: "Physics·Lab",
     category: "Web App · Interactive Simulation",
@@ -1406,6 +1472,270 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
       { src: "/work/lumen-notes/1.png", caption: "Split view — CodeMirror editor and live preview", span: "wide" },
       { src: "/work/lumen-notes/2.png", caption: "Another note open from the vault" },
       { src: "/work/lumen-notes/3.png", caption: "Markdown with syntax-highlighted code blocks" },
+    ],
+  },
+  {
+    index: "15",
+    slug: "basketful",
+    title: "Basketful",
+    category: "Mobile App · Productivity",
+    outcome: "Local-first list that auto-sorts groceries into store aisles",
+    year: "2025",
+    description:
+      "A fast, local-first grocery list app for iPhone and iPad, built in SwiftUI. It auto-sorts items into store aisles as you type, remembers what you buy for one-tap re-adding, and can push a whole recipe onto your list in a single tap.",
+    hue: "from-green-500/40 via-emerald-600/20 to-transparent",
+    accent: "#22c55e",
+    repo: "https://github.com/Evrionllc/Grocery-List-App",
+    heroImage: "/work/basketful/hero.png",
+    meta: [
+      { label: "Project", value: "Basketful" },
+      { label: "Year", value: "2025" },
+      { label: "Discipline", value: "iOS · SwiftUI" },
+      { label: "Stack", value: "SwiftUI · SwiftData" },
+    ],
+    sections: [
+      {
+        id: "context",
+        label: "Context",
+        body: [
+          "Basketful is a native grocery list app built around how people actually shop: a persistent add bar sits in thumb reach at the bottom, clears itself after each item, and lets you rattle off a whole list in seconds.",
+          "The brief originally described a web app; it was deliberately built as a native iOS app instead, where 'works offline in a basement grocery store' isn't a feature you bolt on — it's just how the app works.",
+        ],
+      },
+      {
+        id: "challenge",
+        label: "Challenge",
+        body: [
+          "A grocery list is only pleasant if it organizes itself. Making the user pick a category for every item kills the speed that makes a list worth using — but guessing categories wrong is just as annoying.",
+          "It also had to be genuinely useful the moment it opens, work with zero connectivity, and survive a force-quit or reboot without losing a single item.",
+        ],
+      },
+      {
+        id: "approach",
+        label: "Approach",
+        body: [
+          "A built-in dictionary of ~250 common groceries files items into store aisles as you type — 'milk' into Dairy & Eggs, 'salmon' into Seafood — and the add bar previews the detected aisle live. Correct a wrong guess once and the app remembers it for next time.",
+          "Every item you add is recorded, so a Buy Again sheet can surface your history by frequency or recency, and saved recipes push all their ingredients onto a list in one tap, each auto-sorted on arrival. All of it persists on-device with SwiftData.",
+        ],
+      },
+      {
+        id: "outcome",
+        label: "Outcome",
+        body: [
+          "Basketful ships as a complete local-first app: multiple named lists, quantities and notes without ever becoming a form, a checked-off 'In the cart' section that's recoverable rather than destructive, and starter content on first launch so it's useful immediately.",
+          "With no network dependency at all, it launches instantly and keeps working in the one place you actually need it — a store with no signal.",
+        ],
+      },
+      {
+        id: "technical-detail",
+        label: "Technical Detail",
+        body: [
+          "Built in SwiftUI for iPhone and iPad, with all data stored on-device in SwiftData (GroceryList, GroceryItem, ItemHistory, Recipe, RecipeIngredient). The categorization engine is a keyword dictionary with per-user learned overrides.",
+          "There is no network layer anywhere, which is what makes it inherently offline and privacy-preserving — nothing leaves the device.",
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/work/basketful/1.png", caption: "The list, auto-sorted into store aisles as you type", span: "wide" },
+      { src: "/work/basketful/2.png", caption: "Recipes — push every ingredient onto a list in one tap" },
+    ],
+  },
+  {
+    index: "16",
+    slug: "ironlog",
+    title: "IronLog",
+    category: "Mobile App · Fitness",
+    outcome: "Live workout logging with routines and a rest timer",
+    year: "2025",
+    description:
+      "A native iOS strength-training logger built with SwiftUI and SwiftData: build routines, run a live workout with per-set weight and reps, a running duration and volume readout, and an exercise library — all offline.",
+    hue: "from-orange-500/40 via-red-600/20 to-transparent",
+    accent: "#f97316",
+    repo: "https://github.com/Evrionllc/Workout-Tracker-App",
+    heroImage: "/work/ironlog/hero.png",
+    meta: [
+      { label: "Project", value: "IronLog" },
+      { label: "Year", value: "2025" },
+      { label: "Discipline", value: "iOS · SwiftUI" },
+      { label: "Stack", value: "SwiftUI · SwiftData" },
+    ],
+    sections: [
+      {
+        id: "context",
+        label: "Context",
+        body: [
+          "IronLog is a strength-training tracker with a single strong identity — a molten-orange accent on a deep OLED-friendly dark theme — built entirely in SwiftUI. You save routines like Push, Pull, and Leg day, then run them as live workouts.",
+          "The hard part of a gym app isn't the data model; it's the moment mid-set when you need to log a lift with one hand without breaking rhythm.",
+        ],
+      },
+      {
+        id: "challenge",
+        label: "Challenge",
+        body: [
+          "A live workout is stateful and long-running: a session can span an hour, the app can be backgrounded between sets, and the user needs their previous numbers, a running timer, and running volume all visible at a glance.",
+          "That in-progress session also has to survive — a workout should never be lost because the phone locked or the app was swiped away.",
+        ],
+      },
+      {
+        id: "approach",
+        label: "Approach",
+        body: [
+          "A dedicated workout-session model drives a full-screen live view that stays up until you finish or discard it, showing each exercise with its previous set, editable weight and reps, and tick-to-complete — with duration and volume ticking up in the header.",
+          "The in-progress session is persisted through SwiftData, so it's restored automatically if the app is relaunched. Routines and a searchable exercise library make starting the next session a single tap.",
+        ],
+      },
+      {
+        id: "outcome",
+        label: "Outcome",
+        body: [
+          "IronLog delivers the full loop a lifter needs: build a routine, start it, log sets live against your last numbers, and finish — with history and a profile behind it, all working with no account and no connection.",
+          "The persisted-session design means a workout in progress is genuinely durable, which is exactly the reliability a training log has to earn.",
+        ],
+      },
+      {
+        id: "technical-detail",
+        label: "Technical Detail",
+        body: [
+          "Built for iOS with SwiftUI and SwiftData, using an observable WorkoutSession that's configured with the model context and presented as a full-screen cover whenever a session is running. Sample routines and an exercise library seed on first launch.",
+          "Everything is local and offline; the design system is a single hand-built theme with one deliberately distinct accent color.",
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/work/ironlog/1.png", caption: "Live workout — sets, reps, and a running duration and volume", span: "wide" },
+      { src: "/work/ironlog/2.png", caption: "Routines — Push, Pull, and Leg day, ready to start" },
+    ],
+  },
+  {
+    index: "17",
+    slug: "fitness-tracker",
+    title: "Fitness Tracker",
+    category: "Mobile App · Fitness",
+    outcome: "An offline activity dashboard with rings, trends, and goals",
+    year: "2025",
+    description:
+      "A native iOS fitness dashboard built with SwiftUI and SwiftData: activity rings and daily stats, a workout log, trend charts across 7/30/90 days, and adjustable goals — a high-contrast, OLED-friendly dark experience that runs fully offline.",
+    hue: "from-teal-500/40 via-emerald-600/20 to-transparent",
+    accent: "#14b8a6",
+    repo: "https://github.com/Evrionllc/Fitness-Tracker-App",
+    heroImage: "/work/fitness-tracker/hero.png",
+    meta: [
+      { label: "Project", value: "Fitness Tracker" },
+      { label: "Year", value: "2025" },
+      { label: "Discipline", value: "iOS · SwiftUI" },
+      { label: "Stack", value: "SwiftUI · SwiftData" },
+    ],
+    sections: [
+      {
+        id: "context",
+        label: "Context",
+        body: [
+          "Fitness Tracker is an activity and workout dashboard in the vein of a rings app, built natively in SwiftUI with a whole-app dark mode for a high-contrast, OLED-friendly look. It ties together four surfaces: Today, Workouts, Trends, and Goals.",
+          "The point is legibility at a glance — the day's progress readable in the half-second before you put the phone back down.",
+        ],
+      },
+      {
+        id: "challenge",
+        label: "Challenge",
+        body: [
+          "A dashboard lives or dies on how quickly it communicates. Rings, streaks, and stat cards all have to render instantly from local data and stay honest, with charts that make a week or a quarter of activity readable rather than noisy.",
+          "And it had to feel complete and alive from the first launch, without requiring an account, a sync, or a network round-trip.",
+        ],
+      },
+      {
+        id: "approach",
+        label: "Approach",
+        body: [
+          "The Today screen leads with an activity-ring summary and glanceable stat cards; Trends turns the same underlying logs into calorie and active-minute charts across 7, 30, and 90 days; Goals lets targets be tuned and reflected everywhere.",
+          "All data is stored locally with SwiftData and seeded with realistic sample activity on first launch, so the app is immediately populated and fully usable offline.",
+        ],
+      },
+      {
+        id: "outcome",
+        label: "Outcome",
+        body: [
+          "The result is a coherent, four-tab fitness app: rings and daily stats on Today, a workout log, expressive trend charts, and editable goals — all in a consistent dark theme built around a single fresh-teal accent.",
+          "Because it's local-first, it opens instantly and works anywhere, with no dependency on a backend or connection.",
+        ],
+      },
+      {
+        id: "technical-detail",
+        label: "Technical Detail",
+        body: [
+          "Built for iOS with SwiftUI and SwiftData; charts are rendered natively and the whole app is pinned to a dark color scheme with a reusable Theme. Sample data seeds from the root view on first launch and is a no-op thereafter.",
+          "A clean model layer (Workout, StrengthSet, WeightEntry, GoalSettings) keeps the dashboard's derived summaries fast and testable.",
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/work/fitness-tracker/1.png", caption: "The dashboard and the workout log", span: "wide" },
+      { src: "/work/fitness-tracker/2.png", caption: "Trends — active calories and minutes over time" },
+      { src: "/work/fitness-tracker/3.png", caption: "Goals and adjustable targets" },
+    ],
+  },
+  {
+    index: "18",
+    slug: "floppy-baby",
+    title: "Floppy Baby",
+    category: "Mobile Game · iOS",
+    outcome: "A physics-driven SwiftUI / SpriteKit arcade game",
+    year: "2025",
+    description:
+      "A playful Flappy-Bird-style arcade game for iOS, built with SpriteKit: tap to send a diapered baby up on a puff, dodge the bottles, and chase a high score — with sound, physics, and a cheerful hand-built art style.",
+    hue: "from-pink-500/40 via-sky-500/20 to-transparent",
+    accent: "#f472b6",
+    repo: "https://github.com/Evrionllc/Flappy-Baby-Game",
+    heroImage: "/work/floppy-baby/hero.png",
+    meta: [
+      { label: "Project", value: "Floppy Baby" },
+      { label: "Year", value: "2025" },
+      { label: "Discipline", value: "iOS · Game" },
+      { label: "Stack", value: "SpriteKit · Swift" },
+    ],
+    sections: [
+      {
+        id: "context",
+        label: "Context",
+        body: [
+          "Floppy Baby is a small, self-contained arcade game — the studio's take on the endlessly tappable Flappy-Bird formula, given an original, silly identity: a diapered baby that rises on each tap and drifts back down under gravity.",
+          "It's a deliberate change of pace from data-heavy product work — a reminder that game feel, timing, and juice are their own kind of engineering.",
+        ],
+      },
+      {
+        id: "challenge",
+        label: "Challenge",
+        body: [
+          "Arcade games are unforgiving about feel. The jump impulse, gravity, obstacle spacing, and collision generosity all have to be tuned until the game is hard but fair — the difference between 'one more go' and a delete.",
+          "It also had to run smoothly frame-to-frame, handle its own game states cleanly, and remember your best score between sessions.",
+        ],
+      },
+      {
+        id: "approach",
+        label: "Approach",
+        body: [
+          "The game is built on SpriteKit with a physics body for the baby and precise contact bit-masks for the bottles, the ground, and the score gates. A small state machine moves between waiting, playing, and game-over, with the baby held still until the first tap.",
+          "Clouds drift in procedurally, a sound effect fires on each flap, and the high score is persisted with UserDefaults so there's always a number to beat.",
+        ],
+      },
+      {
+        id: "outcome",
+        label: "Outcome",
+        body: [
+          "The result is a complete, tappable little game with a start prompt, live scoring, a best-score chase, and a bright, wholly original art style — self-contained and ready to run on an iPhone.",
+          "It's proof that the same craft we bring to platforms scales down to something whose only job is to be fun.",
+        ],
+      },
+      {
+        id: "technical-detail",
+        label: "Technical Detail",
+        body: [
+          "Built for iOS with SpriteKit and Swift: an SKScene drives the physics simulation and game loop, category bit-masks handle collision and scoring, and a dedicated audio helper plays the flap sound.",
+          "Game state, obstacle spawning, and the parallax cloud layer are all managed in the scene, with the high score saved to UserDefaults.",
+        ],
+      },
+    ],
+    gallery: [
+      { src: "/work/floppy-baby/1.png", caption: "Tap to send the baby up — dodge the bottles, chase the high score", span: "wide" },
     ],
   },
 ];
