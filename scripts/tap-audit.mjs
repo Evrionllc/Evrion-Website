@@ -1,7 +1,7 @@
 // Find interactive elements smaller than the 44x44px touch minimum, per route.
 import { chromium } from "playwright-core";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-const ROUTES = ["/", "/work", "/work/atlas-freight", "/services", "/studio", "/labs", "/contact"];
+const ROUTES = ["/", "/work", "/work/atlas-freight", "/services", "/studio", "/blog", "/contact"];
 const browser = await chromium.launch({ executablePath: CHROME, headless: true });
 const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
 

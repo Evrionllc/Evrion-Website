@@ -18,9 +18,9 @@ export default function WorkPage() {
         label="Work"
         title="Proof,"
         accent="not promises."
-        description="Every project here shipped, on a date we committed to, and is still in production. We'd rather show you outcomes than adjectives — here are the ones we're proudest of."
+        description="Every project here is built to a defined scope and delivered on a committed timeline. We show outcomes, not descriptions."
         meta={[
-          { label: "Projects delivered", value: "120+" },
+          { label: "Projects delivered", value: "20+" },
           { label: "Industries", value: "14" },
         ]}
       />
@@ -30,7 +30,7 @@ export default function WorkPage() {
       <CtaBanner
         title="Want your product"
         accent="on this page?"
-        description="The next case study could be yours. Tell us what you're building and we'll tell you honestly how we'd ship it."
+        description="The next case study could be yours. Tell us what you have in mind and we'll build it for you."
       />
     </>
   );

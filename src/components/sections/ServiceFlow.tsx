@@ -15,12 +15,11 @@ export default function ServiceFlow() {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6 sm:mb-20">
           <SectionHeading
             label="How it works"
-            title="From hello to handover"
+            title="A disciplined process."
             className="max-w-2xl"
           />
           <p className="max-w-xs text-sm leading-relaxed text-muted">
-            The short version of working with us — six steps, no mystery, and
-            you stay in control the whole way.
+            A defined six-step process from first conversation to handover.
           </p>
         </div>
 

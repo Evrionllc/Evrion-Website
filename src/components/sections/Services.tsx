@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -21,7 +22,7 @@ export default function Services({ expandable = false }: { expandable?: boolean 
       <div className="container-x">
         <SectionHeading
           label="Services"
-          title="Everything it takes to ship a world-class product"
+          title="Everything it takes to build a world-class product"
           className="mb-16 max-w-3xl sm:mb-24"
         />
 
@@ -29,13 +30,14 @@ export default function Services({ expandable = false }: { expandable?: boolean 
           {SERVICES.map((service, i) => (
             <motion.li
               key={service.index}
+              id={`service-${service.index}`}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-8%" }}
               transition={{ duration: 0.7, delay: i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className="group relative border-t border-line last:border-b"
+              className="group relative scroll-mt-28 border-t border-line last:border-b"
             >
               {/* hover wash */}
               <div
@@ -75,11 +77,21 @@ export default function Services({ expandable = false }: { expandable?: boolean 
                 />
               </div>
 
-              {/* full-row click target — only when the section is expandable */}
-              {expandable && (
+              {/*
+                Full-row click target. On the expandable services page it opens
+                the detail modal; elsewhere (e.g. the home page) it forwards to
+                the services page, deep-linked to this service.
+              */}
+              {expandable ? (
                 <button
                   type="button"
                   onClick={() => setActive(service)}
+                  aria-label={`Learn more about ${service.title}`}
+                  className="absolute inset-0 z-10 cursor-pointer"
+                />
+              ) : (
+                <Link
+                  href={`/services#service-${service.index}`}
                   aria-label={`Learn more about ${service.title}`}
                   className="absolute inset-0 z-10 cursor-pointer"
                 />

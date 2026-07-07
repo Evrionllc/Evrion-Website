@@ -21,12 +21,12 @@ export default function WorkArchive() {
         <div className="mb-14 flex flex-wrap items-end justify-between gap-6 sm:mb-20">
           <SectionHeading
             label="Archive"
-            title="More launches from the log"
+            title="Additonal deployments"
             className="max-w-2xl"
           />
           <p className="max-w-xs text-sm leading-relaxed text-muted">
-            Not every project gets a case study. Every one of them got the same
-            standard of care.
+            Not every project is written as a case study.
+            Each was held to the same standards of structure, reliability, and execution..
           </p>
         </div>
 

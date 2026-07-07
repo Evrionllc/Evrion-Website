@@ -48,7 +48,7 @@ export default function PageHero({
         <h1 className="max-w-4xl font-display text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[1.02] font-medium tracking-tight">
           <RevealText text={title} immediate delay={entryDelay + 0.1} />
           {accent && (
-            <span className="text-gradient">
+            <span className="block text-gradient">
               <RevealText text={accent} immediate delay={entryDelay + 0.25} />
             </span>
           )}

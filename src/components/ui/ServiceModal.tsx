@@ -108,6 +108,15 @@ export default function ServiceModal({ service, onClose }: ServiceModalProps) {
               </ul>
             </div>
 
+            <div className="mt-8">
+              <p className="font-mono text-xs tracking-[0.25em] text-faint uppercase">
+                Approach
+              </p>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted">
+                {service.approach}
+              </p>
+            </div>
+
             <div className="mt-8 flex flex-wrap gap-2">
               {service.tags.map((tag) => (
                 <span

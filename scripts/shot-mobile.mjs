@@ -18,7 +18,7 @@ const ROUTES = [
   ["case-study", "/work/atlas-freight"],
   ["services", "/services"],
   ["studio", "/studio"],
-  ["labs", "/labs"],
+  ["blog", "/blog"],
   ["contact", "/contact"],
 ];
 

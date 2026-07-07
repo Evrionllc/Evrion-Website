@@ -1,11 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Check, Info } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Check, Info, Plus } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PricingTierModal from "@/components/ui/PricingTierModal";
-import { PRICING_TIERS, type PricingTier } from "@/lib/data";
+import {
+  PRICING_TIERS,
+  PRICING_SECTIONS,
+  PRICING_DISCLAIMER,
+  type PricingTier,
+} from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 /**
@@ -16,6 +21,7 @@ import { cn } from "@/lib/utils";
 export default function Pricing() {
   const [active, setActive] = useState<PricingTier | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
+  const [openSection, setOpenSection] = useState<number | null>(null);
 
   const featured = PRICING_TIERS.filter((t) => t.featured);
 
@@ -33,7 +39,7 @@ export default function Pricing() {
             />
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
               Same standard, every tier. A $600 landing page gets the same care,
-              code, and polish as a $40k platform — it just ships faster, so it
+              code, and polish as a $55k+ platform — it just ships faster, so it
               costs less.
             </p>
           </div>
@@ -44,7 +50,15 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Featured tiers — Tier 3, 5, 7 */}
+        {/* Pricing disclaimer */}
+        <div className="mb-12 flex items-start gap-3 rounded-2xl border border-iris/20 bg-iris/5 p-4 sm:mb-14">
+          <Info className="mt-0.5 h-4 w-4 shrink-0 text-iris" />
+          <p className="max-w-3xl text-xs leading-relaxed text-muted sm:text-sm">
+            {PRICING_DISCLAIMER}
+          </p>
+        </div>
+
+        {/* Featured tiers — Tier 3, 4, 6 */}
         <div className="grid gap-6 lg:grid-cols-3">
           {featured.map((tier, i) => (
             <motion.article
@@ -80,7 +94,7 @@ export default function Pricing() {
                 </p>
 
                 <ul className="mt-8 flex flex-col gap-3">
-                  {tier.scope.map((item) => (
+                  {tier.included.map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm text-muted">
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-mint" aria-hidden="true" />
                       {item}
@@ -91,7 +105,7 @@ export default function Pricing() {
 
               <div className="relative mt-10 flex items-center justify-between border-t border-line pt-5">
                 <p className="font-mono text-[11px] tracking-[0.2em] text-faint uppercase">
-                  Maintenance · {tier.maintenance.fee}
+                  Maintenance · {tier.maintenanceFee}
                 </p>
                 <span className="font-mono text-[11px] tracking-[0.2em] text-mint uppercase transition-transform duration-300 group-hover:translate-x-0.5">
                   View details →
@@ -164,7 +178,7 @@ export default function Pricing() {
                   </p>
                   <p className="font-mono text-xs text-faint transition-colors duration-300 group-hover:text-mint lg:text-right">
                     <span className="lg:hidden">Maintenance · </span>
-                    {tier.maintenance.fee}
+                    {tier.maintenanceFee}
                   </p>
                 </div>
 
@@ -186,6 +200,62 @@ export default function Pricing() {
               scope, and timeline are determined per project. Select any tier for
               the full breakdown.
             </p>
+          </div>
+        </div>
+
+        {/* Global terms — how payment, maintenance, branding, and the guarantee
+            work across every tier. */}
+        <div className="mt-20 sm:mt-28">
+          <h3 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
+            How every engagement works
+          </h3>
+          <div className="mt-10 overflow-hidden rounded-2xl border border-line">
+            {PRICING_SECTIONS.map((section, i) => {
+              const isOpen = openSection === i;
+              return (
+                <div key={section.title} className="border-b border-line last:border-b-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpenSection(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left transition-colors duration-300 hover:bg-base/40 sm:px-8"
+                  >
+                    <span className="font-display text-lg font-medium tracking-tight sm:text-xl">
+                      {section.title}
+                    </span>
+                    <Plus
+                      className={cn(
+                        "h-5 w-5 shrink-0 text-mint transition-transform duration-300",
+                        isOpen && "rotate-45"
+                      )}
+                      aria-hidden="true"
+                    />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-4 px-6 pb-6 sm:px-8 sm:pb-8">
+                          {section.body.map((para, j) => (
+                            <p
+                              key={j}
+                              className="max-w-3xl text-sm leading-relaxed text-muted"
+                            >
+                              {para}
+                            </p>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

@@ -3,14 +3,16 @@ import PageHero from "@/components/ui/PageHero";
 import NameOrigin from "@/components/sections/NameOrigin";
 import OurValues from "@/components/sections/OurValues";
 import WhyUs from "@/components/sections/WhyUs";
-import Articles from "@/components/sections/Articles";
+// Writing/Articles is hidden on the Studio page — the same posts live on the
+// Blog page. Re-enable the import and the <Articles /> below to bring it back.
+// import Articles from "@/components/sections/Articles";
 import Stats from "@/components/sections/Stats";
 import CtaBanner from "@/components/sections/CtaBanner";
 
 export const metadata: Metadata = {
   title: "Studio",
   description:
-    "The values and people behind Evrion — a deliberately small, senior-only studio measured on outcomes.",
+    "The values and people behind Evrion — a studio measured on outcomes, not hours.",
 };
 
 export default function StudioPage() {
@@ -18,19 +20,20 @@ export default function StudioPage() {
     <>
       <PageHero
         label="Studio"
-        title="Deliberately small."
-        accent="Relentlessly senior."
-        description="Evrion is what happens when designers and engineers who got tired of how agencies work build the alternative: a small team, a high bar, and zero interest in being the biggest — only the best to work with."
+        title="Built on discipline,"
+        accent={"not momentum."}
+        description="Evrion is a precision software studio focused on disciplined engineering and clear decision-making. We build with long-term intent, not short-term pressure."
       />
       <NameOrigin />
       <OurValues />
       <Stats />
       <WhyUs />
-      <Articles />
+      {/* Writing section hidden — articles are shown on the Blog page instead. */}
+      {/* <Articles /> */}
       <CtaBanner
-        title="Sound like a team"
-        accent="you'd want on yours?"
-        description="We take on a handful of new partners each year — deliberately. Tell us about your product and let's see if we're a fit."
+        title="Think we'd work"
+        accent="well together?"
+        description="If our way of working feels like the right fit, we'd love to hear what you have in mind."
       />
     </>
   );

@@ -14,7 +14,7 @@ export default function ContactSteps() {
       <div className="container-x">
         <SectionHeading
           label="What Happens Next"
-          title="No black box, no waiting room"
+          title="How we begin."
           className="mb-14 max-w-2xl sm:mb-20"
         />
 

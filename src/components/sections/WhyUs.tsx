@@ -15,7 +15,7 @@ export default function WhyUs() {
           <div className="lg:sticky lg:top-32 lg:self-start">
             <SectionHeading
               label="Why Evrion"
-              title="Most agencies build software. We build conviction."
+              title="Most agencies build software. We build confidence."
             />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -24,9 +24,7 @@ export default function WhyUs() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-8 max-w-md text-base leading-relaxed text-muted"
             >
-              The difference between a vendor and a partner is who loses sleep
-              over your launch. We measure ourselves on the outcomes your board
-              cares about — not billable hours.
+              We believe dependable software comes from disciplined engineering, thoughtful design, and an unwavering commitment to quality—not shortcuts or compromises.
             </motion.p>
           </div>
 

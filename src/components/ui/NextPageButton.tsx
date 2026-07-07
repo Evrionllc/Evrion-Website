@@ -21,7 +21,7 @@ const REVEAL_OFFSET = 700;
 /**
  * Floating "up next" button that pops in at the bottom-right as you approach
  * the end of a page and forwards visitors to the next stop in the tour.
- * Renders nothing on pages without a next step (e.g. Contact, Labs).
+ * Renders nothing on pages without a next step (e.g. Contact).
  */
 export default function NextPageButton() {
   const pathname = usePathname();

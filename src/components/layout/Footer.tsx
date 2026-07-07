@@ -5,10 +5,8 @@ import { motion } from "framer-motion";
 import { NAV_LINKS, SITE } from "@/lib/data";
 
 const SOCIALS = [
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "X / Twitter", href: "https://x.com" },
-  { label: "Dribbble", href: "https://dribbble.com" },
-  { label: "GitHub", href: "https://github.com" },
+  { label: "Instagram", href: "https://www.instagram.com/evrionllc/" },
+  { label: "X / Twitter", href: "https://x.com/Evrionllc" },
 ];
 
 export default function Footer() {
@@ -22,7 +20,7 @@ export default function Footer() {
               <span className="text-iris">.</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-              A digital product studio for teams that refuse to ship average.
+              A precision software studio for teams that refuse to ship average.
             </p>
           </div>
 

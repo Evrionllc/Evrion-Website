@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import NextPageButton from "@/components/ui/NextPageButton";
 import ChatWidget from "@/components/ui/ChatWidget";
+import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import { SITE } from "@/lib/data";
 import "./globals.css";
 
@@ -31,7 +32,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — Digital Product Studio`,
+    default: `${SITE.name} — Precision Software Studio`,
     template: `%s — ${SITE.name}`,
   },
   description: SITE.description,
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     "SaaS development",
     "mobile app development",
     "UI/UX design",
-    "dedicated development teams",
+    "engineering support",
   ],
   openGraph: {
     title: `${SITE.name} — ${SITE.tagline}`,
@@ -80,6 +81,7 @@ export default function RootLayout({
           <Footer />
           <NextPageButton />
           <ChatWidget />
+          <WhatsAppWidget />
         </SmoothScroll>
       </body>
     </html>

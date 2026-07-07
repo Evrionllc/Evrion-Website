@@ -15,12 +15,11 @@ export default function ContactPage() {
     <>
       <PageHero
         label="Contact"
-        title="Talk to the people"
-        accent="who do the work."
-        description="No discovery-call gatekeepers, no sales scripts. Your message lands with a senior designer or engineer — the same people who would actually build your product."
+        title="Built by the people"
+        accent="who stay with it."
+        description="Your message goes directly to the people who design and build your system."
         meta={[
           { label: "Response time", value: "< 24 hours" },
-          { label: "NDA", value: "Same day" },
         ]}
       />
       <Contact />

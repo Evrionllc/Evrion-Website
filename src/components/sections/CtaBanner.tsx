@@ -14,9 +14,9 @@ type CtaBannerProps = {
 
 /** Closing call-to-action for inner pages — copy varies per page via props. */
 export default function CtaBanner({
-  title = "Ready to build",
-  accent = "something that moves?",
-  description = "Tell us where you want to go. We'll reply within 24 hours with honest thoughts on how to get there.",
+  title = "Let's talk about",
+  accent = "your product.",
+  description = "Tell us what you're working on. We’ll respond within 24 hours with clear, practical feedback.",
 }: CtaBannerProps) {
   return (
     <section
@@ -51,7 +51,7 @@ export default function CtaBanner({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="mt-7 max-w-md text-sm leading-relaxed text-white sm:text-base"
+          className="mt-7 max-w-md text-sm leading-relaxed text-foreground/90"
         >
           {description}
         </motion.p>

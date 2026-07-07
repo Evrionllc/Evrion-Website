@@ -15,12 +15,48 @@ const inputClasses =
 export default function Contact() {
   const [budget, setBudget] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  // Frontend-only for now — swap with a server action or API route when a
-  // backend/CRM is connected.
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  // Posts the form to /api/contact, which relays it to the studio inbox via
+  // Resend. See src/app/api/contact/route.ts.
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (sending) return;
+    setError(null);
+    setSending(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const payload = {
+      name: String(data.get("name") ?? ""),
+      email: String(data.get("email") ?? ""),
+      company: String(data.get("company") ?? ""),
+      message: String(data.get("message") ?? ""),
+      website: String(data.get("website") ?? ""), // honeypot
+      budget: budget ?? "",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) {
+        const { error: msg } = await res.json().catch(() => ({ error: "" }));
+        throw new Error(msg || "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -40,9 +76,8 @@ export default function Contact() {
             <RevealText text="worth building?" />
           </h2>
           <p className="mt-8 max-w-md text-base leading-relaxed text-muted">
-            Tell us where you want to go. We&apos;ll reply within 24 hours with
-            honest thoughts on how to get there — and whether we&apos;re the
-            right team to take you.
+            Share your idea. We&apos;ll reply within 24 hours with thoughts on
+            scope, approach, and feasibility.
           </p>
 
           <MagneticButton className="mt-12">
@@ -59,10 +94,6 @@ export default function Contact() {
             <div>
               <p className="text-faint">Response time</p>
               <p className="mt-2 text-foreground">&lt; 24 hours</p>
-            </div>
-            <div>
-              <p className="text-faint">Working across</p>
-              <p className="mt-2 text-foreground">EU · US · APAC</p>
             </div>
           </div>
         </div>
@@ -85,7 +116,7 @@ export default function Contact() {
                   Message received.
                 </p>
                 <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-                  Thanks for reaching out — a senior member of the team will be
+                  Thanks for reaching out — a member of the team will be
                   in touch within 24 hours.
                 </p>
               </motion.div>
@@ -175,16 +206,31 @@ export default function Contact() {
                     required
                     rows={4}
                     placeholder="Tell us about your project *"
-                    className={`${inputClasses} resize-none`}
+                    className={`${inputClasses
+                      .replace("border-line", "border-foreground/25")
+                      .replace("placeholder:text-faint", "placeholder:text-muted")} resize-none`}
                   />
                 </div>
+
+                {/* Honeypot — hidden from real users; bots that fill it are dropped. */}
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label htmlFor="website">Leave this field empty</label>
+                  <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                </div>
+
+                {error && (
+                  <p role="alert" className="mt-6 text-sm text-red-400">
+                    {error}
+                  </p>
+                )}
 
                 <MagneticButton className="mt-10 self-start">
                   <button
                     type="submit"
-                    className="group inline-flex h-14 items-center gap-2 rounded-full bg-foreground px-9 text-sm font-medium text-base transition-colors duration-300 hover:bg-mint"
+                    disabled={sending}
+                    className="group inline-flex h-14 items-center gap-2 rounded-full bg-foreground px-9 text-sm font-medium text-base transition-colors duration-300 hover:bg-mint disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    Send message
+                    {sending ? "Sending…" : "Send message"}
                     <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </button>
                 </MagneticButton>

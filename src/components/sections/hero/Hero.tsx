@@ -18,7 +18,7 @@ const KEYWORDS = [
   "SaaS Development",
   "Mobile Apps",
   "UI/UX Design",
-  "Dedicated Teams",
+  "Engineering Support",
   "Custom Software",
   "Technical Consulting",
 ];
@@ -68,7 +68,7 @@ export default function Hero() {
           transition={{ delay: entryDelay, duration: 0.7, ease: "easeOut" }}
           className="mb-8 font-mono text-xs tracking-[0.35em] text-mint uppercase"
         >
-          Digital Product Studio
+          Precision Software Studio
         </motion.p>
 
         <h1 className="max-w-5xl font-display text-[clamp(2.75rem,8vw,7rem)] leading-[0.98] font-medium tracking-tight">
@@ -119,8 +119,7 @@ export default function Hero() {
           transition={{ delay: entryDelay + 0.7, duration: 0.8, ease: "easeOut" }}
           className="mt-8 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
         >
-          Evrion is the technology partner behind ambitious teams of every size
-          — designing and engineering software people actually love to use.
+          Thoughtfully designed. Meticulously engineered. Built to support your business today—and every step that follows.
         </motion.p>
 
         <motion.div

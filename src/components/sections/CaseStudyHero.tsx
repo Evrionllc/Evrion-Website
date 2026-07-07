@@ -36,7 +36,7 @@ export default function CaseStudyHero({ project }: { project: Project }) {
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: entryDelay + 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-line sm:aspect-[16/9]"
+          className="relative mx-auto aspect-[5/4] max-w-[960px] overflow-hidden rounded-2xl border border-line sm:aspect-[4/3]"
         >
           <ProjectVisual
             hue={project.hue}

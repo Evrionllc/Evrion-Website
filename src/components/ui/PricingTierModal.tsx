@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
-import { X, Check, ArrowUpRight, Info } from "lucide-react";
+import { X, Check, Minus, ArrowUpRight, Info } from "lucide-react";
 import type { PricingTier } from "@/lib/data";
 
 type PricingTierModalProps = {
@@ -13,9 +13,11 @@ type PricingTierModalProps = {
 };
 
 /**
- * Detail modal for a single pricing tier. Surfaces the full scope, timeline,
- * build price, monthly maintenance, and the services typically involved —
- * with clear disclaimers that the figures are guidelines scoped per project.
+ * Detail modal for a single pricing tier. Surfaces timeline, build price, and
+ * monthly maintenance, what's included and excluded, payment terms, and any
+ * per-tier notes — with clear disclaimers that the figures are guidelines
+ * scoped per project. Global terms (payment, maintenance coverage, branding,
+ * guarantee) live in the expandable sections beneath the table, not here.
  * Closes on Escape, backdrop click, or the close button; locks body scroll.
  */
 export default function PricingTierModal({
@@ -117,18 +119,18 @@ export default function PricingTierModal({
                   Maintenance
                 </dt>
                 <dd className="mt-2 text-lg font-medium tracking-tight">
-                  {tier.maintenance.fee}
+                  {tier.maintenanceFee}
                 </dd>
               </div>
             </dl>
 
-            {/* scope */}
+            {/* what's included */}
             <div className="mt-8">
               <p className="font-mono text-xs tracking-[0.25em] text-faint uppercase">
                 What&apos;s included
               </p>
               <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
-                {tier.scope.map((item) => (
+                {tier.included.map((item) => (
                   <li
                     key={item}
                     className="flex items-start gap-3 text-sm text-foreground/90"
@@ -140,39 +142,47 @@ export default function PricingTierModal({
               </ul>
             </div>
 
-            {/* maintenance detail */}
+            {/* what's not included */}
+            {tier.notIncluded.length > 0 && (
+              <div className="mt-8">
+                <p className="font-mono text-xs tracking-[0.25em] text-faint uppercase">
+                  Not included
+                </p>
+                <ul className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2">
+                  {tier.notIncluded.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm text-muted"
+                    >
+                      <Minus className="mt-0.5 h-4 w-4 shrink-0 text-faint" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* payment */}
             <div className="mt-8 rounded-2xl border border-line p-5">
               <p className="font-mono text-xs tracking-[0.25em] text-faint uppercase">
-                Monthly maintenance · {tier.maintenance.name}
+                Payment
               </p>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                {tier.maintenance.scope}
-              </p>
-              <p className="mt-3 font-mono text-sm text-foreground">
-                {tier.maintenance.fee}
+                {tier.payment}
               </p>
             </div>
 
-            {/* services standardly used */}
-            <div className="mt-8">
-              <p className="font-mono text-xs tracking-[0.25em] text-faint uppercase">
-                Services standardly used
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {tier.services.map((service) => (
-                  <span
-                    key={service}
-                    className="rounded-full border border-line px-3 py-1 font-mono text-[10px] tracking-widest text-muted uppercase"
-                  >
-                    {service}
-                  </span>
-                ))}
+            {/* per-tier notes */}
+            {tier.notes?.map((note) => (
+              <div key={note.label} className="mt-6 rounded-2xl border border-line p-5">
+                <p className="font-mono text-xs tracking-[0.25em] text-mint uppercase">
+                  {note.label}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
+                  {note.body}
+                </p>
               </div>
-              <p className="mt-3 text-xs leading-relaxed text-faint">
-                Typical for this tier — the exact mix of services can change from
-                one project to the next.
-              </p>
-            </div>
+            ))}
 
             {/* pricing disclaimer */}
             <div className="mt-8 flex items-start gap-3 rounded-2xl border border-iris/20 bg-iris/5 p-4">

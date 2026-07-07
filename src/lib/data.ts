@@ -1,17 +1,23 @@
 export const SITE = {
   name: "EVRION",
-  tagline: "We engineer digital momentum",
-  email: "hello@evrion.studio",
-  url: "https://evrion.studio",
+  tagline: "Software your business can stand on",
+  email: "contact@evrionllc.com",
+  url: "https://evrionllc.com",
+  // Contact number shown to users, plus the E.164 digits (US +1) used to build
+  // the wa.me deep link for the WhatsApp widget.
+  phone: "(551) 258-7590",
+  whatsapp: "15512587590",
   description:
-    "Evrion is a digital product studio crafting premium websites, software, and mobile experiences for ambitious teams of every size.",
+    "Evrion is a precision software studio crafting premium websites, software, and mobile experiences for ambitious teams of every size.",
 };
 
 export const NAV_LINKS = [
   { label: "Work", href: "/work" },
   { label: "Studio", href: "/studio" },
   { label: "Services", href: "/services" },
-  { label: "Labs", href: "/labs" },
+  // Blog is hidden for now — the /blog route and its content still exist,
+  // it's just unlinked from the nav. Re-add this line to bring it back.
+  // { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -23,104 +29,120 @@ export type Service = {
   overview: string;
   /** Concrete deliverables listed in the service detail modal */
   included: string[];
+  /** How we work — shown as the "Approach" block in the detail modal */
+  approach: string;
   tags: string[];
 };
 
 export const SERVICES: Service[] = [
   {
     index: "01",
-    title: "Web Design",
+    title: "Web Applications",
     description:
-      "Art-directed marketing sites and brand experiences that convert attention into trust. Every pixel placed with intent.",
+      "Thoughtfully designed interfaces and web systems built for clarity, speed, and long-term use.",
     overview:
-      "We design marketing sites and brand experiences that earn trust in the first three seconds. Strategy, art direction, and motion come together so every scroll feels considered and every message lands — then we hand it to engineering pixel-perfect and production-ready.",
+      "We design and build websites that prioritize structure, usability, and long-term maintainability. Every interface is shaped by clarity, not decoration.",
     included: [
       "Brand & visual identity",
-      "Art-directed page design",
-      "Reusable design system",
-      "Motion & micro-interactions",
+      "Design systems",
       "Responsive engineering handoff",
+      "API integration",
+      "Performance optimization",
     ],
+    approach:
+      "We treat web products as systems, not pages—ensuring every layer supports scalability and long-term stability.",
     tags: ["Creative Direction", "Design Systems", "Motion Design"],
   },
   {
     index: "02",
-    title: "Software Development",
+    title: "Custom Software",
     description:
-      "Custom platforms and SaaS products engineered for scale. Clean architecture, rigorous testing, zero shortcuts.",
+      "Custom platforms and SaaS products engineered for scale, clarity, maintainability, and long-term evolution.",
     overview:
-      "We build custom platforms and SaaS products engineered to scale from your first user to your millionth. Clean architecture, automated testing, and observability are baked in from day one — not bolted on later — so you ship fast without accruing the kind of debt that stalls a roadmap.",
+      "We design and build custom software systems that support real business operations (not just prototypes or surface-level applications) and are engineered to scale as you grow.",
     included: [
-      "Full-stack web applications",
-      "API design & integrations",
+      "Full-stack architecture",
       "Cloud infrastructure & DevOps",
-      "Automated testing & CI/CD",
+      "API design & development",
+      "Database modeling",
       "Performance & security hardening",
     ],
+    approach:
+      "We focus on structure and maintainability from day one, ensuring systems remain understandable as they grow.",
     tags: ["SaaS Platforms", "APIs & Integrations", "Cloud Architecture"],
   },
   {
     index: "03",
-    title: "Mobile Development",
+    title: "Mobile Applications",
     description:
-      "Native-quality iOS and Android applications that feel inevitable in the hand. From concept to App Store.",
+      "Native-quality mobile experiences built for performance, reliability, and consistency.",
     overview:
-      "We ship native-quality iOS and Android apps that feel inevitable in the hand. From prototype to App Store and Play Store, we own the full lifecycle — including release management and post-launch iteration — so your product keeps improving long after launch day.",
+      "We build native-quality mobile applications that feel natural, responsive, and stable across both iOS and Android environments. We manage release and post-launch iteration—so your product keeps improving long after launch day.",
     included: [
-      "iOS & Android (native)",
-      "React Native & Flutter",
-      "Offline-first & real-time sync",
+      "iOS & Android development",
+      "Cross-platform development (if needed)",
+      "UI implementation",
+      "Backend integration",
+      "Performance optimization",
       "App Store & Play Store release",
-      "Crash monitoring & analytics",
     ],
+    approach:
+      "We prioritize smooth interaction, stability, and long-term maintainability over feature excess.",
     tags: ["iOS & Android", "React Native", "Flutter"],
   },
   {
     index: "04",
     title: "UI/UX Design",
     description:
-      "Research-driven product design that removes friction and rewards every interaction. Interfaces people remember.",
+      "Structured product design focused on clarity, usability, and system-level thinking.",
     overview:
-      "We turn research into product design that removes friction and rewards every interaction. We validate with real users early and often, so what we ship is what people actually want to use — measured in adoption and retention, not just applause.",
+      "We design interfaces that reduce friction and bring structure to complex systems. The goal is clarity at every interaction.",
     included: [
-      "User research & interviews",
-      "Information architecture",
-      "Interactive prototypes",
+      "User research & product structure",
+      "Interactive prototype",
+      "High-fidelity UI design",
+      "Design systems",
       "Usability testing",
-      "Accessible design (WCAG)",
     ],
+    approach:
+      "We design from systems outward—not screens inward—ensuring consistency and scalability across the product.",
     tags: ["Product Design", "Prototyping", "User Research"],
   },
   {
     index: "05",
-    title: "Dedicated Teams",
+    title: "Engineering Support",
     description:
-      "Senior engineers and designers embedded in your organization. Your roadmap, our velocity — no ramp-up tax.",
+      "Focused engineering support integrated directly into your product development process.",
     overview:
-      "We embed senior engineers and designers directly into your organization. You set the roadmap; we bring the velocity — with no ramp-up tax and no juniors learning on your budget. The team flexes with your needs and plugs into the tools and rituals you already run.",
+      "We integrate directly into your workflow to support ongoing development, feature work, and system improvements.",
     included: [
-      "Senior engineers & designers",
-      "Flexible team scaling",
-      "Your tools & workflows",
-      "Daily collaboration & standups",
-      "Knowledge transfer & docs",
+      "Feature development",
+      "Codebase improvements",
+      "Architecture support",
+      "Technical maintenance",
+      "Collaboration with internal teams",
     ],
-    tags: ["Staff Augmentation", "Team Extension", "Outsourcing"],
+    approach:
+      "You work directly with the engineers building your product—no layers, no handoffs, no fragmentation.",
+    tags: ["Feature Development", "Maintenance", "Architecture Support"],
   },
   {
     index: "06",
     title: "Technical Consulting",
     description:
-      "Architecture reviews, technology strategy, and due diligence from people who have shipped at every scale.",
+      "Architecture and product guidance focused on clarity, structure, and long-term decision-making.",
     overview:
-      "We provide architecture reviews, technology strategy, and technical due diligence from people who have shipped at every scale. Whether you're de-risking a raise or untangling legacy systems, you get a clear, actionable path forward — and the rationale behind every recommendation.",
+      "We provide architecture reviews, technology strategy, and technical due diligence. We help teams make better technical decisions around architecture, scalability, and product direction.",
     included: [
-      "Architecture & code reviews",
-      "Technology strategy & roadmaps",
+      "Architecture and code review",
       "Technical due diligence",
-      "Scalability & cost audits",
       "Team & process assessment",
+      "Scalability planning",
+      "Technology strategy & roadmaps",
+      "Product technical strategy",
     ],
+    approach:
+      "We focus on reducing complexity and improving long-term clarity in technical systems.",
     tags: ["Architecture", "Audits", "Strategy"],
   },
 ];
@@ -636,242 +658,6 @@ export const PROJECTS: Project[] = [
   },
 ];
 
-/**
- * Labs — the "building in public" page. Entries are demos, works-in-progress,
- * and experiments, grouped by `group`. An entry with a `detail` opens an
- * on-site modal; an entry with only an `href` links straight out to a live URL.
- * (When both exist, the modal carries a "Visit live" button.)
- */
-export type LabStatusTone = "live" | "progress" | "beta" | "internal" | "idea";
-
-export type LabEntry = {
-  id: string;
-  group: "demo" | "ongoing" | "experiment";
-  title: string;
-  /** short category line, e.g. "Demo · Healthcare" */
-  kind: string;
-  type: "Personal" | "Client" | "Studio";
-  status: { label: string; tone: LabStatusTone };
-  blurb: string;
-  tags: string[];
-  hue: string;
-  accent: string;
-  /** when it last moved, e.g. "Jun 2026" */
-  updated?: string;
-  /** external live/demo URL (opens in a new tab) */
-  href?: string;
-  /** on-site write-up shown in the Labs modal */
-  detail?: { overview: string[]; bullets?: string[] };
-};
-
-export const LAB_ENTRIES: LabEntry[] = [
-  // ---- Live demos ----------------------------------------------------------
-  {
-    id: "meridian-clinic",
-    group: "demo",
-    title: "Meridian Clinic",
-    kind: "Demo · Healthcare",
-    type: "Studio",
-    status: { label: "Live", tone: "live" },
-    blurb:
-      "A booking-first website concept for a private clinic — calm, fast, and built to turn a visit into an appointment.",
-    tags: ["Next.js", "Booking UX", "Motion"],
-    hue: "from-emerald-500/40 via-teal-600/20 to-transparent",
-    accent: "#34d399",
-    updated: "May 2026",
-    // TODO: replace with the real live demo URL
-    href: "#",
-  },
-  {
-    id: "aurora-store",
-    group: "demo",
-    title: "Aurora Store",
-    kind: "Demo · E-commerce",
-    type: "Studio",
-    status: { label: "Live", tone: "live" },
-    blurb:
-      "A headless storefront playground with edge-rendered product pages and an instant, no-reload cart.",
-    tags: ["Headless", "Edge", "Commerce"],
-    hue: "from-fuchsia-500/40 via-purple-600/20 to-transparent",
-    accent: "#d946ef",
-    updated: "Apr 2026",
-    // TODO: replace with the real live demo URL
-    href: "#",
-  },
-  {
-    id: "motion-lab",
-    group: "demo",
-    title: "Motion Lab",
-    kind: "Demo · Interaction",
-    type: "Studio",
-    status: { label: "Live", tone: "live" },
-    blurb:
-      "A running gallery of the scroll-driven and WebGL transitions we reuse across client builds.",
-    tags: ["GSAP", "WebGL", "Scroll"],
-    hue: "from-sky-500/40 via-indigo-600/20 to-transparent",
-    accent: "#38bdf8",
-    updated: "Jun 2026",
-    // TODO: replace with the real live demo URL
-    href: "#",
-    detail: {
-      overview: [
-        "Motion Lab is where we prototype the interactions that later show up — quietly — in client work. Page transitions, scroll-pinned storytelling, cursor effects, and the odd shader, all in one place we can point to instead of describe.",
-        "Treat it as a menu: if something here feels right for your product, we already know it performs and degrades gracefully, because it's been living in the open.",
-      ],
-      bullets: [
-        "Scroll-driven section reveals",
-        "WebGL image transitions",
-        "View-Transitions page morphs",
-        "Reduced-motion-safe by default",
-      ],
-    },
-  },
-
-  // ---- On the bench (in progress) ------------------------------------------
-  {
-    id: "evrion-os",
-    group: "ongoing",
-    title: "Evrion OS",
-    kind: "Internal tooling",
-    type: "Studio",
-    status: { label: "In progress", tone: "progress" },
-    blurb:
-      "Our own project-ops dashboard — demos, timelines, and client updates living in one place instead of five.",
-    tags: ["Next.js", "Postgres", "Internal"],
-    hue: "from-amber-500/40 via-orange-600/20 to-transparent",
-    accent: "#f59e0b",
-    updated: "Jun 2026",
-    detail: {
-      overview: [
-        "We got tired of stitching together status across Slack, a spreadsheet, and three repos, so we're building the tool we wished existed: one place that shows every active engagement, what shipped this week, and what's next.",
-        "It's also a testbed — new patterns get dogfooded here before they ever reach a client project.",
-      ],
-    },
-  },
-  {
-    id: "trailhead",
-    group: "ongoing",
-    title: "Trailhead",
-    kind: "Personal · Travel",
-    type: "Personal",
-    status: { label: "In progress", tone: "progress" },
-    blurb:
-      "A weekend project — an offline-first trip planner, mostly an excuse to go deep on local-first sync.",
-    tags: ["React Native", "Local-first", "Maps"],
-    hue: "from-lime-500/40 via-green-600/20 to-transparent",
-    accent: "#84cc16",
-    updated: "Jun 2026",
-    detail: {
-      overview: [
-        "Trailhead is a personal build: plan a multi-day trip, then have every map, note, and booking work with no signal in the mountains. It's the kind of constraint that teaches you more than any tutorial.",
-        "Whatever we learn about conflict-free sync here tends to pay off the next time a client needs an app that can't assume connectivity.",
-      ],
-    },
-  },
-  {
-    id: "client-analytics",
-    group: "ongoing",
-    title: "Logistics analytics platform",
-    kind: "Client · under wraps",
-    type: "Client",
-    status: { label: "Private beta", tone: "beta" },
-    blurb:
-      "A real-time analytics platform for a logistics client, currently in private beta. Specifics are under NDA.",
-    tags: ["Confidential"],
-    hue: "from-cyan-500/40 via-teal-600/20 to-transparent",
-    accent: "#22d3ee",
-    updated: "May 2026",
-    detail: {
-      overview: [
-        "We can't show this one yet — it's a client platform in private beta and the details sit under an NDA. We're including it because honesty about what's in flight beats a suspiciously tidy portfolio.",
-        "Once it's public we'll write it up properly. In the meantime, happy to talk about the approach under a mutual NDA.",
-      ],
-    },
-  },
-  {
-    id: "ledgerlight",
-    group: "ongoing",
-    title: "Ledgerlight",
-    kind: "Personal · Fintech",
-    type: "Personal",
-    status: { label: "Beta", tone: "beta" },
-    blurb:
-      "A deliberately tiny personal-finance app — one screen, zero dashboards, just where the money actually went.",
-    tags: ["SwiftUI", "On-device", "Beta"],
-    hue: "from-violet-500/40 via-indigo-600/20 to-transparent",
-    accent: "#8b5cf6",
-    updated: "Apr 2026",
-    // TODO: replace with the real TestFlight / beta link
-    href: "#",
-    detail: {
-      overview: [
-        "Most budgeting apps drown you in charts. Ledgerlight is the opposite bet: a single calm screen that answers one question honestly. It's a personal project, currently in a small TestFlight beta.",
-        "It doubles as a study in on-device privacy — nothing leaves the phone — which is increasingly what clients ask for too.",
-      ],
-    },
-  },
-
-  // ---- Experiments & features ----------------------------------------------
-  {
-    id: "ai-copy-assistant",
-    group: "experiment",
-    title: "AI copy assistant",
-    kind: "Feature experiment",
-    type: "Studio",
-    status: { label: "Prototype", tone: "idea" },
-    blurb:
-      "An in-house tool that drafts on-brand UI copy from a component and a one-line intent.",
-    tags: ["LLM", "Tooling"],
-    hue: "from-rose-500/40 via-fuchsia-600/20 to-transparent",
-    accent: "#f43f5e",
-    detail: {
-      overview: [
-        "A prototype that takes a component and a sentence of intent and proposes microcopy that already sounds like the brand — empty states, buttons, error messages, the stuff that usually gets written last and worst.",
-        "Early days, but promising enough that it's already saving us a pass on placeholder text.",
-      ],
-    },
-  },
-  {
-    id: "scroll-3d-hero",
-    group: "experiment",
-    title: "Scroll-driven 3D hero",
-    kind: "Feature experiment",
-    type: "Studio",
-    status: { label: "Experiment", tone: "idea" },
-    blurb:
-      "Replacing heavy hero video with a lightweight WebGL scene driven entirely by scroll.",
-    tags: ["WebGL", "Performance"],
-    hue: "from-sky-500/40 via-blue-600/20 to-transparent",
-    accent: "#38bdf8",
-  },
-  {
-    id: "view-transitions",
-    group: "experiment",
-    title: "Cross-document View Transitions",
-    kind: "Feature experiment",
-    type: "Studio",
-    status: { label: "Exploring", tone: "idea" },
-    blurb:
-      "Native multi-page transitions that make a regular site feel like a single-page app.",
-    tags: ["View Transitions", "UX"],
-    hue: "from-amber-500/40 via-orange-600/20 to-transparent",
-    accent: "#f59e0b",
-  },
-  {
-    id: "edge-personalization",
-    group: "experiment",
-    title: "Edge personalization",
-    kind: "Feature experiment",
-    type: "Studio",
-    status: { label: "Research", tone: "idea" },
-    blurb:
-      "Per-visitor content variants rendered at the edge — no client-side flash, no slow first paint.",
-    tags: ["Edge", "Personalization"],
-    hue: "from-emerald-500/40 via-teal-600/20 to-transparent",
-    accent: "#34d399",
-  },
-];
-
 export type ProcessStep = {
   index: string;
   title: string;
@@ -888,62 +674,62 @@ export const SERVICE_FLOW: ProcessStep[] = [
     index: "01",
     title: "Get in touch",
     description:
-      "Tell us what you're building. A senior team member replies within 24 hours with honest first thoughts — no sales scripts, no gatekeepers.",
+      "Tell us what you're building. We respond within 24 hours with initial thoughts and next steps.",
   },
   {
     index: "02",
     title: "Design a demo",
     description:
-      "We turn the brief into a clickable demo quickly, so you're reacting to something real instead of a slide deck — and you see the direction before committing to a full build.",
+      "We turn the brief into a clickable demo, so decisions are made from something real, not a concept.",
   },
   {
     index: "03",
     title: "Refine the details",
     description:
-      "We walk the demo together and tune it — copy, flows, edge cases, the small things that decide whether it feels right. Nothing moves forward until the plan is one you're happy with.",
+      "We review the demo together and refine the details — flows, copy, and edge cases that define how it works.",
   },
   {
     index: "04",
     title: "Build the full project",
     description:
-      "Senior designers and engineers build it for real, in transparent weekly cycles. You see working software at every step — never a black box, never a surprise at the end.",
+      "Our engineers build it for real, in transparent weekly cycles. You see working software at every step — never a black box, never a surprise at the end.",
   },
   {
     index: "05",
     title: "Security check & polish",
     description:
-      "Before launch we harden, test, and sweat the details — performance, accessibility, and a security pass — so what ships is genuinely solid, not just finished.",
+      "Before launch we harden, test, and review the details — performance, accessibility, and a security pass — so what ships is genuinely solid, not just finished.",
   },
   {
     index: "06",
     title: "Publish & handover",
     description:
-      "We deploy, hand everything over in your own accounts, and make sure your team knows the ropes. The product is fully yours — no lock-in, no hostages.",
+      "We deploy, transfer ownership to your accounts, and ensure your team has full access and documentation.",
   },
 ];
 
 export const REASONS = [
   {
-    title: "Senior-only craft",
+    title: "Thoughtful by design",
     description:
-      "No juniors learning on your budget. Every project is staffed by engineers and designers with a decade of shipped work behind them.",
+      "Every decision across product, design, and engineering is made with intention.",
   },
   {
-    title: "Dedicated teams",
+    title: "Direct collaboration",
     description:
-      "A stable, embedded team that learns your domain deeply — not a rotating cast of strangers billing hours.",
+      "You work directly with the people building your product.",
   },
   {
-    title: "Velocity without debt",
+    title: "Built to last",
     description:
-      "We move fast because our foundations are disciplined. Clean architecture today is speed tomorrow.",
+      "We build software designed for clarity, stability, and long-term use.",
   },
 ];
 
 export const STATS = [
-  { value: 120, suffix: "+", label: "Projects delivered" },
-  { value: 98, suffix: "%", label: "Client satisfaction" },
-  { value: 10, suffix: "+", label: "Years of experience" },
+  { value: 20, suffix: "+", label: "Projects delivered" },
+  { value: 100, suffix: "%", label: "Satisfaction" },
+  { value: 5, suffix: "+", label: "Years of experience" },
   { value: 14, suffix: "", label: "Industries served" },
 ];
 
@@ -956,21 +742,33 @@ export type Testimonial = {
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "Evrion operates like a senior product team that happens to sit outside our building. They challenged our assumptions, then shipped a platform our users genuinely love.",
-    name: "Sarah Lindqvist",
-    role: "VP of Product, Helios Grid",
-  },
-  {
-    quote:
-      "We interviewed nine agencies. Evrion was the only one that talked about our business model before talking about technology. They've been our team ever since.",
+      "We needed buyers to find the right car and reach us without friction. Evrion shipped a storefront where inventory search, the payment calculator, and lead capture just work — plus an admin our staff actually enjoy using.",
     name: "Marcus Chen",
-    role: "CEO, Atlas Freight",
+    role: "General Manager, Apex Auto Group",
   },
   {
     quote:
-      "The level of polish is absurd. Every interaction in the app feels considered. Our App Store rating went from 3.8 to 4.9 after the relaunch.",
+      "Evrion obsessed over the part our customers never see. Every price is settled on the server and every order confirmed by Stripe before a bag ships — fast for shoppers, airtight for us. That's rare craft.",
     name: "Amira Hadid",
-    role: "Founder, Pulsewear",
+    role: "Founder, Emberhaus Coffee",
+  },
+  {
+    quote:
+      "Our whole business depends on subscription gates that actually hold. Evrion built access control that's decided on the server every time, with Stripe as the source of truth — members upgrade seamlessly and we stopped worrying about leaks.",
+    name: "Sarah Lindqvist",
+    role: "Head of Product, Ascend Academy",
+  },
+  {
+    quote:
+      "Property is a spatial decision, and Evrion understood that. The synced list-and-map, the filtering, the mortgage math — it all stays in step no matter how our buyers search. It feels like a national portal, not a local site.",
+    name: "Daniel Okafor",
+    role: "Broker / Owner, Haven & Finch",
+  },
+  {
+    quote:
+      "We wanted a weather product that answers the question behind the question, not just the temperature. Evrion delivered a dashboard that's genuinely useful — and polished enough that people keep it open in a tab all day.",
+    name: "Elena Rossi",
+    role: "Founder, Skyline",
   },
 ];
 
@@ -1006,7 +804,7 @@ export type ArchiveProject = Project & {
 
 export const WORK_ARCHIVE: ArchiveProject[] = [
   {
-    index: "07",
+    index: "08",
     slug: "taskhaus",
     title: "Taskhaus",
     category: "SaaS · Team Productivity",
@@ -1073,7 +871,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "08",
+    index: "09",
     slug: "ledgerly",
     title: "Ledgerly",
     category: "Web App · Personal Finance",
@@ -1140,7 +938,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "09",
+    index: "10",
     slug: "ripple",
     title: "Ripple",
     category: "Web App · Real-time Chat",
@@ -1207,7 +1005,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "10",
+    index: "11",
     slug: "osteria-fiorella",
     title: "Osteria Fiorella",
     category: "Marketing Site · Restaurant",
@@ -1274,7 +1072,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "11",
+    index: "12",
     slug: "klok",
     title: "Klok",
     category: "Marketing Site · SaaS",
@@ -1341,7 +1139,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "12",
+    index: "13",
     slug: "techconsult-pro",
     title: "TechConsult Pro",
     category: "Marketing Site · Consulting",
@@ -1408,7 +1206,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     ],
   },
   {
-    index: "13",
+    index: "14",
     slug: "lumen-notes",
     title: "Lumen Notes",
     category: "Desktop App · Productivity",
@@ -1750,250 +1548,302 @@ export type PricingTier = {
   name: string;
   /** One-line scope summary for cards and the list row */
   summary: string;
-  /** Core features, broken out for the detail modal */
-  scope: string[];
-  /** Summarized ideal audience */
-  idealFor: string;
   timeline: string;
   buildPrice: string;
-  maintenance: {
-    name: string;
-    scope: string;
-    fee: string;
-  };
-  /** Services typically involved at this tier (can vary per project) */
-  services: string[];
+  /** Monthly maintenance fee, or "—" where maintenance doesn't apply */
+  maintenanceFee: string;
+  /** What the build includes — drives cards and the detail modal */
+  included: string[];
+  /** Explicitly out of scope (may be empty) */
+  notIncluded: string[];
+  /** Payment terms for this tier */
+  payment: string;
+  /** Optional per-tier callouts (e.g. "Good to know", "Timeline note") */
+  notes?: { label: string; body: string }[];
   featured?: boolean;
 };
 
 export const PRICING_TIERS: PricingTier[] = [
   {
     tier: "Tier 1",
-    name: "Landing Page / Single-Page Site",
+    name: "Technical Consultation",
     summary:
-      "A single scrolling page with hero, about, features, and a contact CTA.",
-    scope: [
-      "Single scrolling page with hero header",
-      "About section & short features section",
-      "Simple contact form / CTA",
-      "Social icons",
+      "One-hour expert session: feasibility, tech decisions, architecture review. Written recommendations included.",
+    timeline: "1 hour",
+    buildPrice: "$200 flat",
+    maintenanceFee: "—",
+    included: [
+      "60-minute video call with an engineer, not a salesperson",
+      "Any topic: is your idea buildable, tech-stack choices, vendor or freelancer evaluation, architecture questions",
+      "Written summary with our recommendations within 2 business days",
     ],
-    idealFor:
-      "Local service businesses, quick product validations, and event pages.",
-    timeline: "3–7 days",
-    buildPrice: "$600 – $1,200",
-    maintenance: {
-      name: "Basic Hosting & Security",
-      scope:
-        "Standard cloud hosting, SSL certificate monitoring, and annual domain-renewal tracking.",
-      fee: "$29 – $49/mo",
-    },
-    services: ["Web Design", "UI/UX Design"],
+    notIncluded: [],
+    payment: "Paid at booking.",
+    notes: [
+      {
+        label: "Good to know",
+        body: "If you hire us for a project within 30 days, the $200 is credited toward your build. Need a deep review of an existing codebase instead? We offer a full Code & Architecture Audit with a written report — $1,500–$4,000 depending on codebase size, quoted after a quick look.",
+      },
+    ],
   },
   {
     tier: "Tier 2",
-    name: "Premium Landing Page (High-Conversion)",
+    name: "Landing Page",
     summary:
-      "A high-conversion single page with custom UI, animations, and lead capture.",
-    scope: [
-      "High-end single page with advanced copywriting",
-      "Custom UI elements & basic animations",
-      "Newsletter integration (Mailchimp)",
-      "Tracking pixels",
+      "One high-converting page: hero, services, contact form, mobile-ready, basic SEO.",
+    timeline: "~1 week",
+    buildPrice: "$600 – $1,500",
+    maintenanceFee: "$79/mo",
+    included: [
+      "Single-page design and build",
+      "Hero section and services / features section",
+      "Contact form with email notifications",
+      "Mobile-responsive and SSL",
+      "Basic on-page SEO (title, meta, indexing)",
+      "Analytics setup and cross-browser testing",
+      "2 revision rounds and a 30-day bug-fix guarantee",
     ],
-    idealFor:
-      "Startups launching a single product, course creators, and conversion-focused marketing campaigns.",
-    timeline: "1–2 weeks",
-    buildPrice: "$1,500 – $2,500",
-    maintenance: {
-      name: "Analytics & Lead Optimization",
-      scope:
-        "Everything in Tier 1, plus monthly tracking-pixel verification, form-delivery tests, and database cleanup.",
-      fee: "$49 – $79/mo",
-    },
-    services: ["Web Design", "UI/UX Design", "Technical Consulting"],
+    notIncluded: [
+      "Copywriting",
+      "Logo / brand design (see the Brand Starter add-on)",
+      "Photography",
+    ],
+    payment: "50% to start, 50% at launch.",
+    notes: [
+      {
+        label: "Timeline note",
+        body: "Assumes content and brand assets are delivered before the build starts.",
+      },
+    ],
   },
   {
     tier: "Tier 3",
-    name: "Multi-Page Brochure Website",
-    summary: "A 3–5 page brochure site with SEO, a contact form, and maps.",
-    scope: [
-      "3–5 core pages (Home, About, Services, Contact)",
-      "Clean typography & standard contact form",
-      "Basic SEO setup",
-      "Google Maps integration",
-    ],
-    idealFor:
-      "Small businesses, local clinics, consulting practices, and legal firms that want a polished, credible online presence.",
+    name: "Business Website",
+    summary:
+      "Up to 5 pages, contact forms, Google Maps & reviews, analytics setup.",
     timeline: "2–3 weeks",
-    buildPrice: "$2,500 – $4,000",
-    maintenance: {
-      name: "Standard Essentials",
-      scope:
-        "Shared/core hosting, plugin & theme updates (anti-hack), broken-link checks, and monthly full backups.",
-      fee: "$79 – $149/mo",
-    },
-    services: ["Web Design", "UI/UX Design", "Technical Consulting"],
+    buildPrice: "$1,800 – $3,500",
+    maintenanceFee: "$99/mo",
+    included: [
+      "Up to 5 pages (e.g. Home, About, Services, Gallery, Contact)",
+      "Contact forms",
+      "Google Maps and Google Reviews integration",
+      "Click-to-call",
+      "Analytics and SSL",
+      "Basic SEO, mobile-responsive",
+      "2 revision rounds and a 30-day guarantee",
+    ],
+    notIncluded: [
+      "Client-editable CMS (that's Tier 4)",
+      "Copywriting",
+      "Branding",
+      "Content migration beyond 5 pages",
+    ],
+    payment: "50% to start, 50% at launch.",
     featured: true,
   },
   {
     tier: "Tier 4",
-    name: "CMS-Driven Website (Content-Heavy)",
-    summary: "A 5–10 page CMS site with a dynamic blog and easy client updates.",
-    scope: [
-      "5–10 pages on a CMS (WordPress / Webflow)",
-      "Dynamic blog & service catalogs",
-      "Team bios & portfolio grid",
-      "Easy client-side content updates",
+    name: "Professional Website + CMS",
+    summary:
+      "Up to 10 pages you can edit yourself: blog, portfolio, team pages. SEO + performance tuned.",
+    timeline: "3–5 weeks",
+    buildPrice: "$4,000 – $7,500",
+    maintenanceFee: "$149/mo",
+    included: [
+      "Up to 10 pages",
+      "Content management system — edit text, images, blog posts, and portfolio items without us",
+      "On-page SEO across all pages",
+      "Performance optimization (Core Web Vitals)",
+      "A 1-hour training session on editing your own site",
+      "2 revision rounds and a 30-day guarantee",
     ],
-    idealFor:
-      "Real estate agents, creative agencies, news blogs, and teams needing frequent content updates.",
-    timeline: "3–4 weeks",
-    buildPrice: "$4,000 – $6,500",
-    maintenance: {
-      name: "Content & CMS Management",
-      scope:
-        "Everything in Tier 3, plus CMS updates, database optimization, and 1 hr of content support (swapping photos/text).",
-      fee: "$150 – $249/mo",
-    },
-    services: ["Web Design", "UI/UX Design", "Software Development"],
+    notIncluded: [
+      "Copywriting",
+      "Branding",
+      "Migration beyond 10 pages",
+      "Custom user accounts (that's Tier 6)",
+    ],
+    payment: "50% to start, 50% at launch.",
+    featured: true,
   },
   {
     tier: "Tier 5",
-    name: "Interactive & Advanced Contact Portals",
+    name: "E-commerce Store",
     summary:
-      "A multi-page site with smart intake forms, uploads, and booking.",
-    scope: [
-      "Conditional-logic intake forms",
-      "Multi-step questionnaires",
-      "Document upload",
-      "Basic booking-calendar syncing",
+      "Full online store: catalog, secure checkout, payments, shipping & tax, up to 50 products loaded.",
+    timeline: "4–8 weeks",
+    buildPrice: "$7,500 – $15,000",
+    maintenanceFee: "$199/mo",
+    included: [
+      "Product catalog",
+      "Cart and secure checkout",
+      "Payment processing setup (e.g. Stripe or Shopify Payments)",
+      "Shipping and tax configuration",
+      "Order management and customer accounts",
+      "Up to 50 products loaded for you",
+      "Email receipt setup",
+      "2 revision rounds and a 30-day guarantee",
     ],
-    idealFor:
-      "Medical intake, home contractors needing detailed quotes, recruiting agencies, and consulting firms.",
-    timeline: "3–5 weeks",
-    buildPrice: "$4,500 – $7,000",
-    maintenance: {
-      name: "API & Form Compliance",
-      scope:
-        "Everything in Tier 4, plus data-encryption verification, webhook health monitoring, and form spam-filter tuning.",
-      fee: "$199 – $349/mo",
-    },
-    services: [
-      "Web Design",
-      "UI/UX Design",
-      "Software Development",
-      "Technical Consulting",
+    notIncluded: [
+      "Product photography and descriptions",
+      "Loading beyond 50 products (quoted per batch)",
+      "Marketing / ads",
+      "Platform subscription fees (e.g. Shopify's plan) and payment-processor fees — billed to you directly by those providers",
     ],
-    featured: true,
+    payment: "50% to start, 50% at launch.",
   },
   {
     tier: "Tier 6",
-    name: "E-Commerce Storefront",
-    summary: "A full storefront with catalog, cart, checkout, and payments.",
-    scope: [
-      "Full online store (up to 50 products)",
-      "Product catalog, cart & checkout",
-      "Payment gateway (Stripe / PayPal)",
-      "Automated email receipts & basic inventory",
-    ],
-    idealFor:
-      "Boutique retail brands, local artists selling merchandise, and direct-to-consumer brands.",
-    timeline: "4–6 weeks",
-    buildPrice: "$6,000 – $12,000",
-    maintenance: {
-      name: "E-Com Growth & Security",
-      scope:
-        "High-performance commerce server, daily automated backups, payment-gateway API updates, and checkout optimization.",
-      fee: "$299 – $499/mo",
-    },
-    services: [
-      "Web Design",
-      "UI/UX Design",
-      "Software Development",
-      "Technical Consulting",
-    ],
-  },
-  {
-    tier: "Tier 7",
-    name: "Membership / Gated Portal Site",
+    name: "Custom Web Application",
     summary:
-      "A membership portal with logins, gated content, and subscriptions.",
-    scope: [
-      "User registration, login & profiles",
-      "Protected content / courses",
-      "Subscription billing & dashboards",
-      "Community / forum elements",
+      "Accounts, dashboards, custom logic, API integrations, database design.",
+    timeline: "6–10 weeks",
+    buildPrice: "$14,000 – $28,000",
+    maintenanceFee: "$299/mo",
+    included: [
+      "Discovery and a written specification",
+      "User accounts and authentication",
+      "Custom dashboards and business logic",
+      "Third-party API integrations",
+      "Database design",
+      "Staging environment for your review",
+      "Weekly progress updates",
+      "2 revision rounds on design and a 30-day guarantee",
     ],
-    idealFor:
-      "Coaching networks, private training sites, premium content creators, and member organizations.",
-    timeline: "4–8 weeks",
-    buildPrice: "$7,500 – $15,000",
-    maintenance: {
-      name: "User Database Care",
-      scope:
-        "Premium hosting layer, customer-account database management, subscription-logic testing, and isolated security monitoring.",
-      fee: "$399 – $699/mo",
-    },
-    services: [
-      "Web Design",
-      "UI/UX Design",
-      "Software Development",
-      "Mobile Development",
-      "Technical Consulting",
+    notIncluded: [
+      "Features added after the spec is signed (quoted separately in writing before we build them — never a surprise)",
+      "Ongoing feature development (available hourly or via a maintenance upgrade)",
     ],
+    payment:
+      "50% to start, 50% at launch. On request, larger builds can split 50/25/25, with the middle payment at approval of core functionality.",
     featured: true,
   },
   {
-    tier: "Tier 8",
-    name: "Full-Scale Web Application (SaaS / MVP)",
+    tier: "Tier 7",
+    name: "SaaS MVP",
     summary:
-      "A custom web app with complex backend, dashboards, and real-time data.",
-    scope: [
-      "Custom web app with complex backend logic",
-      "Database architecture & real-time data",
-      "User-generated dashboards",
-      "Heavy API integrations",
+      "Launch-ready first version of your product: auth, billing, admin panel, one core workflow.",
+    timeline: "10–14 weeks",
+    buildPrice: "$25,000 – $55,000+",
+    maintenanceFee: "from $500/mo",
+    included: [
+      "Authentication",
+      "Subscription billing",
+      "Admin panel",
+      "One core user workflow, defined together in a written feature list before we build",
+      "Deployment and monitoring setup",
+      "Weekly demos so you see the product grow",
+      "30-day guarantee",
     ],
-    idealFor:
-      "Tech startups building an MVP and companies seeking bespoke internal operational tools.",
-    timeline: "8–12+ weeks",
-    buildPrice: "$15,000 – $45,000+",
-    maintenance: {
-      name: "Bespoke DevOps & SLA",
-      scope:
-        "Dedicated cloud setup (AWS / DigitalOcean), continuous uptime tracking, bug patching, horizontal scaling, and a custom SLA.",
-      fee: "$750 – $2k+/mo",
-    },
-    services: [
-      "Software Development",
-      "Dedicated Teams",
-      "Technical Consulting",
-      "Mobile Development",
+    notIncluded: [],
+    payment:
+      "50% to start; the remaining 50% is tied to milestones in the feature list (typically 50/25/25).",
+    notes: [
+      {
+        label: "What an MVP means here",
+        body: "An MVP is deliberately the smallest version of your product real users can pay for. That's not a limitation of our team — it's how successful products launch. If your vision involves multiple complex workflows or an open-ended roadmap, we'll tell you honestly on the discovery call and scope a realistic first version, or point you to a larger team.",
+      },
+      {
+        label: "Maintenance",
+        body: "Custom plan from $500/mo — covers hosting, monitoring, security, and a monthly block of engineering hours sized to your product.",
+      },
+    ],
+  },
+  {
+    tier: "Tier 8",
+    name: "Mobile App (iOS + Android)",
+    summary:
+      "Cross-platform app from one codebase: up to 6 core screens, accounts, push notifications, store submission.",
+    timeline: "8–14 weeks",
+    buildPrice: "$18,000 – $45,000",
+    maintenanceFee: "from $249/mo",
+    included: [
+      "One codebase for both platforms (React Native or Flutter)",
+      "Up to ~6 core screens",
+      "User accounts",
+      "Push notifications",
+      "App Store and Google Play submission",
+      "30-day guarantee",
+    ],
+    notIncluded: [
+      "Apple / Google developer account fees (paid by you — approximately $99/yr and $25 one-time; verify current fees)",
+      "Complex features quoted individually (real-time chat, in-app payments, offline sync, hardware integration)",
+    ],
+    payment:
+      "50% to start, 25% at feature-complete build, 25% at store submission.",
+    notes: [
+      {
+        label: "Need a backend too?",
+        body: "Combined app + backend projects (custom backend and admin dashboard) typically run $30,000–$65,000+ — quoted after discovery.",
+      },
     ],
   },
 ];
+
+export type PricingSection = {
+  title: string;
+  body: string[];
+};
+
+/**
+ * Global terms that apply across every tier — rendered once as expandable
+ * panels beneath the pricing table rather than repeated in each modal.
+ */
+export const PRICING_SECTIONS: PricingSection[] = [
+  {
+    title: "How payment works",
+    body: [
+      "Simple and standard: 50% to start, 50% at launch. No hidden fees, no hourly surprises on fixed-scope projects. Larger builds (Custom Apps, SaaS, Mobile) split the final half into milestones — you pay as you see working results, exactly as spelled out in your quote. And before any payment at all, you get a free discovery call and a fixed written quote, so you know precisely what you're buying.",
+      "Scope changes: anything outside the signed scope is quoted in writing before we build it. Pauses & cancellation: if a project is cancelled or paused by the client for more than 30 days, completed work is billed at $140/hr against payments made, and resumed projects are re-scheduled into our queue. Timelines assume client feedback within 3 business days; delays on content or feedback extend the schedule, not the price.",
+    ],
+  },
+  {
+    title: "What maintenance actually covers",
+    body: [
+      "Every plan includes managed hosting with SSL, security and compatibility updates, uptime monitoring with same-business-day response, daily backups (30-day retention), and small content edits — up to 2 requests or 30 minutes per month (updating a price, changing hours, swapping a photo, editing a paragraph). Unused time doesn't roll over.",
+      "Not covered: new pages, new features, redesigns, or bulk updates — quoted separately or billed at $140/hr (2-hour minimum). Unsure if something is a small edit? Ask — we'll tell you before any charge. Month-to-month, cancel anytime with 30 days' notice; we hand over hosting cleanly.",
+    ],
+  },
+  {
+    title: "No logo or brand yet? Covered.",
+    body: [
+      "We're engineers, and we don't pretend otherwise — so for brand work we partner with vetted professional designers. The Brand Starter add-on covers a logo, color palette, font pairing, and a basic usage guide, managed by us as a single line item on your quote, so you get one point of contact and one bill. Typically $600–$1,500 depending on scope (rate set with our design partner — final figure in your quote).",
+      "Already have a logo? Send us the files, colors, and fonts and we'll build around them. Every website also includes our design direction — typography, spacing, color scheme — at no extra cost; that's just part of building it right. Need full brand strategy or naming? That's a branding agency's craft, and we'll happily refer you to one.",
+    ],
+  },
+  {
+    title: "The 30-day guarantee & ownership",
+    body: [
+      "Every project includes a 30-day post-launch guarantee: anything in-scope that breaks, we fix free. And everything we build is yours — code, design files, accounts, domain — fully transferred at launch. No lock-in, ever.",
+    ],
+  },
+];
+
+/** Disclaimer shown alongside the pricing table. */
+export const PRICING_DISCLAIMER =
+  "Ranges are guidelines — every project gets a fixed written quote before any payment.";
 
 export const VALUES = [
   {
     title: "Taste is a feature",
     description:
-      "Polish isn't decoration — it's the difference between software people tolerate and software people recommend.",
+      "Good taste isn't about aesthetics alone. It's the judgment to know what belongs, what doesn't, and when something is truly finished.",
   },
   {
-    title: "Disagree, then commit",
+    title: "Challenge assumptions",
     description:
-      "We'll challenge your assumptions before we write a line of code. Then we'll back the decision like it was ours.",
+      "We ask difficult questions before work begins, not after it's shipped. Better assumptions lead to better decisions—and better software.",
   },
   {
     title: "Write it down",
     description:
-      "Decisions, architecture, tribal knowledge — documented as we go, so your team never depends on our memory.",
+      "Decisions should outlast meetings and people. We document the thinking behind the work so knowledge remains accessible long after delivery.",
   },
   {
-    title: "Leave it better",
+    title: "Improve the foundation",
     description:
-      "Every codebase, design file, and process we touch should be cleaner when we leave than when we arrived.",
+      "Every change should strengthen what's already there. We leave code, designs, and documentation in a better state than we found them.",
   },
 ];
 
@@ -2006,21 +1856,21 @@ export type ContactStep = {
 export const CONTACT_STEPS: ContactStep[] = [
   {
     index: "01",
-    title: "A real reply, fast",
+    title: "Quick reply",
     description:
-      "Within 24 hours a senior team member — never a sales bot — reads your message and responds with honest first thoughts.",
+      "Within 24 hours, a member of our team reads your message and responds with initial thoughts.",
   },
   {
     index: "02",
-    title: "A scoping call",
+    title: "Initial conversation",
     description:
-      "Forty-five minutes on your goals, constraints, and timeline. We'll tell you plainly if we're not the right fit.",
+      "We'll spend about 30 minutes discussing your goals, constraints, timeline, and any questions you have.",
   },
   {
     index: "03",
-    title: "A proposal in days",
+    title: "Proposal and process",
     description:
-      "A precise estimate with scope, team, and dates — never a teaser number that doubles after kickoff.",
+      "We'll prepare a clear proposal outlining the scope, timeline, pricing, and the best way to move forward.",
   },
 ];
 
@@ -2033,32 +1883,32 @@ export const FAQS: FaqItem[] = [
   {
     question: "How do engagements typically work?",
     answer:
-      "Smaller sites kick off as soon as the scope is clear; larger builds start with a short discovery phase to align on scope, architecture, and success metrics. From there we work in transparent cycles with demos along the way — fixed-scope for well-defined builds, or a dedicated team retainer for evolving products.",
+      "Smaller sites kick off as soon as the scope is clear; larger builds start with a short discovery phase to align on scope, architecture, and success metrics. From there we work in transparent cycles with demos along the way — every project is fixed-scope with a written quote, and ongoing support is available once you're live.",
   },
   {
     question: "What does a typical project cost?",
     answer:
-      "Simple landing pages start around $600, most marketing, brochure, and e-commerce sites land between $1.5k and $15k, and full web apps or SaaS/MVP builds run from $15k to $45k+ depending on complexity. Dedicated teams are priced per specialist per month. After one scoping call we'll give you a precise, honest estimate — never a teaser number.",
+      "Landing pages run $600–$1.5k and business websites $1.8k–$7.5k depending on size and CMS needs. E-commerce stores land between $7.5k and $15k, custom web applications between $14k and $28k, and SaaS MVPs from $25k to $55k+. Mobile apps run $18k–$45k. After one scoping call we'll give you a precise, honest estimate — never a teaser number.",
   },
   {
     question: "How long until we can launch?",
     answer:
-      "A simple landing page can ship in under a week, and most marketing, brochure, and e-commerce sites in two to eight weeks. A full web app or SaaS/MVP typically takes two to three months or more, depending on scope. We'd rather give you a real date and hit it than promise magic — our on-time delivery rate is the stat we protect most.",
+      "A landing page ships in about a week, business websites in two to five weeks, and e-commerce stores in four to eight. A custom web application takes six to ten weeks, and a SaaS MVP or mobile app typically runs eight to fourteen, depending on scope. We'd rather give you a real date and hit it than promise magic.",
   },
   {
     question: "Do you work with our in-house team?",
     answer:
-      "Constantly. About half our engagements are embedded collaborations — we plug into your repos, standups, and tooling, and we document everything so your team owns the result, not us.",
+      "Yes — when you have an in-house team, we work alongside it. We plug into your repos, standups, and tooling where it helps, and we document everything so your team owns the result, not us.",
   },
   {
     question: "What happens after launch?",
     answer:
-      "Every build includes a stabilization period, then most clients move to an optimization retainer: performance monitoring, iteration on real usage data, and a standing team that already knows your codebase.",
+      "Every project includes a 30-day guarantee — anything in-scope that breaks, we fix free. From there, most clients move to a monthly maintenance plan: managed hosting, monitoring, security updates, and small content edits, with larger changes quoted separately by a team that already knows your codebase.",
   },
   {
-    question: "Can you sign an NDA before we talk?",
+    question: "What should I include in my message?",
     answer:
-      "Of course. Send yours or use our mutual NDA — we can have it signed the same day so the first call can go deep.",
+      "A short description of what you're building, your timeline, and anything you'd like us to know. You don't need a detailed specification — we'll help define the rest.",
   },
 ];
 
@@ -2070,11 +1920,122 @@ export type Article = {
   author: string;
   date: string;
   readingTime: string;
-  /** Body paragraphs, rendered in order inside the reader modal. */
+  /** Body paragraphs, rendered in order on the post page. */
   body: string[];
 };
 
 export const ARTICLES: Article[] = [
+  {
+    slug: "shipping-an-llm-feature-to-real-users",
+    category: "AI",
+    title: "We shipped an LLM feature to real users. Here's what the demos don't tell you.",
+    excerpt:
+      "The prototype took an afternoon. The other ninety percent — the part that decides whether people actually trust it — took two months. That gap is the whole story.",
+    author: "Halim Luman",
+    date: "2026-06-24",
+    readingTime: "8 min read",
+    body: [
+      "The demo that sold everyone on the feature took me an afternoon. Wire up the API, paste in a prompt, stream the tokens into a text box — and there it was, doing something that genuinely felt like magic in a meeting. Then we tried to put it in front of real people, and the afternoon turned into two months. That gap between 'works in a demo' and 'safe to ship' is the part nobody puts in the launch video, which is exactly why it's worth writing about.",
+      "The first thing that breaks is your assumption that the model is reliable. In the demo you type the happy-path question and get a great answer. Real users type half a question, a typo, a paste of an entire email, or something adversarial just to see what happens. A frontier model handles most of that gracefully and then, maybe one time in fifty, produces a confident, beautifully formatted, completely wrong answer. One in fifty sounds fine until you multiply it by thousands of sessions and remember that the wrong answers are the ones people screenshot.",
+      "So most of the two months went into everything around the model rather than the model itself. We built an evaluation set — a couple hundred real-ish inputs paired with known-good outputs — so that when we changed a prompt we could measure whether we'd actually made things better or just different. Without that, prompt engineering is superstition: you tweak a sentence, the one example you happened to test improves, and you have no idea what you quietly broke everywhere else.",
+      "Then there's the plumbing that decides whether it feels good. Streaming the response token by token instead of making people watch a spinner for eight seconds. Timeouts and retries for when the provider has a bad minute. Caching so you're not paying twice to answer the same question. Rate limits so a single user can't run up the bill. None of it is glamorous, and all of it is the difference between a feature that ships and a science project that lives on someone's laptop.",
+      "We also got a lot stricter about where the model is even allowed to matter. If a wrong answer is merely annoying — a rough first draft, a suggested tag, a starting point someone will edit anyway — an LLM is a great fit, because a human is right there to catch it. If a wrong answer is expensive or dangerous — anything touching money, permissions, or a claim someone might act on — the model can draft and suggest, but a deterministic check or an actual person makes the final call. 'Let the AI decide' is a design smell every single time the decision genuinely matters.",
+      "Cost surprised us in both directions. The per-request price is trivial right up until a feature gets popular, and then it's a real line item you have to design around — shorter prompts, a smaller model for the easy cases, aggressive caching, and the humility to notice when a plain old function would do the same job for free. A surprising number of things marketed as 'AI features' are really a regex wearing a very expensive costume.",
+      "The honest summary is that the model is now the easy part. The hard part is the same as it has always been: understanding the actual problem, handling the unhappy paths, being clear with users about what the thing can and can't do, and keeping the failure modes cheap. LLMs are a genuinely new capability and we're excited about them — but the teams getting real value out of them aren't the ones with the cleverest prompt. They're the ones who treated it like production software instead of a party trick.",
+    ],
+  },
+  {
+    slug: "the-2026-framework-treadmill",
+    category: "News",
+    title: "The framework treadmill kept spinning in 2026. We mostly stepped off.",
+    excerpt:
+      "Server Components everywhere, another router rewrite, three more 'React killers.' The churn is real — here's how we decide what's worth chasing and what's just noise.",
+    author: "Evrion Team",
+    date: "2026-05-20",
+    readingTime: "6 min read",
+    body: [
+      "If you tried to keep up with front-end frameworks this year, you spent it slightly out of breath. Server Components went from controversial to assumed. There was another routing paradigm, another wave of 'React killers,' another round of takes about whether the whole ecosystem had lost the plot. And somewhere in all that, you were also supposed to have an opinion, migrate everything, and — almost incidentally — ship your actual product.",
+      "We mostly stepped off the treadmill, and it's made us faster rather than slower. Not because the new ideas are bad; a lot of them are genuinely good. It's because 'new' and 'better for this client, this quarter' are different questions, and the industry has a real talent for conflating them into the same breathless recommendation.",
+      "Our filter is boring on purpose: does this reduce the distance between what we intend and what actually ships? A tool earns adoption when it removes a category of bug, deletes a pile of glue code, or makes the fast path the default one. Signals-based reactivity, for example, genuinely kills a class of stale-state bugs — that's a real win worth paying a migration for. A framework that's fifteen percent faster in a benchmark none of your users will ever hit is not, no matter how good the launch thread was.",
+      "It also helps to separate the load-bearing choices from the reversible ones. Your language, your data model, your auth, your hosting — those are expensive to change, so we stay conservative and pick things with a long, boring track record. Your animation library or your table component is a Tuesday-afternoon decision you can rip out whenever you like, so we're happy to experiment there. Most 'should we adopt X' anxiety evaporates the moment you ask which of those two buckets X actually falls into.",
+      "This year we did adopt plenty — React 19's improvements, Tailwind v4, better server rendering across the board — because each one paid for its own migration in code we got to delete afterward. And we passed on plenty more, not out of stubbornness but because the honest answer to 'what would this fix for us right now?' was 'nothing yet.' A lot of promising tools are one release away from being obviously worth it, and there's no prize for being early and wrong.",
+      "The uncomfortable truth underneath all of it is that products almost never fail because they picked React instead of the framework of the month. They fail because the thing was slow, or confusing, or solved a problem nobody had. A boring, well-understood stack frees up exactly the attention those problems demand. The framework churn is fun to watch, and mostly a very well-produced distraction from the work that actually decides whether you win.",
+    ],
+  },
+  {
+    slug: "local-first-is-finally-practical",
+    category: "Innovation",
+    title: "Local-first software grew up — and it quietly raises the bar for everyone",
+    excerpt:
+      "Offline that actually works, instant interfaces, and real-time sync you no longer have to hand-roll. The sync-engine era is here, and users are about to start expecting it.",
+    author: "Halim Luman",
+    date: "2026-04-29",
+    readingTime: "7 min read",
+    body: [
+      "There's a particular kind of magic in an app that just works when the wifi doesn't. You're in a tunnel, or on a plane, or in a basement café with aggressively hostile guest wifi, and the thing keeps responding instantly — you make your changes, and when you resurface everything is quietly, correctly in sync. For years that experience was so expensive to build that almost nobody bothered. In 2026, that's finally changing, and it's one of the more exciting shifts in how apps get made.",
+      "The old way to add 'offline support' was to bolt it on: a queue of pending requests, a pile of conflict-resolution code you wrote and re-wrote yourself, and a long tail of edge cases that eventually corrupted someone's data at the worst possible moment. It was miserable enough that most teams shipped a spinner and an error banner and called it done. The whole category had a reputation for being a tar pit, and the reputation was thoroughly earned.",
+      "What changed is that the genuinely hard part — merging concurrent edits without a central referee — got packaged up. CRDTs went from research-paper curiosity to libraries you can actually pull into a project, and a wave of sync engines now handle the plumbing underneath. Your app reads and writes a local store that feels instant, and the engine takes care of syncing to the server and reconciling everyone's changes in the background. The thing that used to be a six-month project is now much closer to a dependency you install.",
+      "We've been leaning into this on a personal project — an offline-first trip planner — precisely because it's the kind of constraint that teaches you things no tutorial can. Every map, note, and booking has to work with no signal and then reconcile cleanly the moment it comes back. What you learn wrestling with that pays off directly the next time a client needs an app that can't assume a perfect connection, which turns out to be far more of them than you'd guess.",
+      "The interesting part isn't really the offline support itself — it's what falls out of it almost for free. When the source of truth is a local store that syncs, you get instant UI because a click doesn't wait on a round trip, you get real-time collaboration because everyone is simply syncing the same data, and you get resilience because a dropped request becomes a non-event. Features that each used to be their own separate project start showing up together, as side effects of the architecture.",
+      "None of this is free, and pretending otherwise would be dishonest. Local-first adds real complexity to your data model, it's a poor fit for anything that must be strongly consistent the instant it's written — inventory counts, seat availability, a bank balance — and it forces genuinely hard questions about what 'delete' even means when copies of the data live on devices you don't control. It is emphatically not the right default for every app.",
+      "But the bar is moving underneath all of us. Once enough products feel instant and keep working offline, that stops being a delight and starts being an expectation — the same way nobody thanks you anymore for a site that loads quickly, they just quietly abandon the ones that don't. Local-first is graduating from a niche philosophy into a plain competitive baseline, and the teams paying attention now are the ones who won't be scrambling to catch up later.",
+    ],
+  },
+  {
+    slug: "cross-document-view-transitions",
+    category: "Tech",
+    title: "Cross-document View Transitions took away the SPA's last excuse",
+    excerpt:
+      "For years the big reason to ship a heavy single-page app was smooth page transitions. The browser just does that now — and it's quietly changing how we architect sites.",
+    author: "Evrion Team",
+    date: "2026-03-18",
+    readingTime: "6 min read",
+    body: [
+      "For the better part of a decade, one of the strongest arguments for building a heavyweight single-page app was almost embarrassingly cosmetic: smooth transitions between pages. A regular website blinks white and snaps to the top when you click a link; an SPA can cross-fade and slide and generally feel like a native app. That single difference pushed an enormous number of teams into shipping far more JavaScript than their content ever actually needed.",
+      "That argument has basically evaporated. Cross-document View Transitions — the browser animating between two full page loads — moved from experiment to something you can genuinely reach for in production. You navigate to a new URL the old-fashioned way, the server sends HTML, and the browser tweens between the outgoing page and the incoming one. No client-side router, no rehydration tax, no framework required for the effect itself.",
+      "The mental model is refreshingly simple. You tag the elements that should feel continuous across a navigation — a hero image, a card that expands into its own detail page — with a shared name, and the browser works out the in-between frames. A card sitting in a grid can visually morph into the header of the page it links to, an effect that used to require a small pile of choreography and now takes a couple of lines of CSS and an opt-in.",
+      "What this really changes is the default you reach for. You can build a mostly-static, server-rendered site — fast to load, trivial to cache, friendly to search engines — and still get the fluid, app-like feel that used to be the whole justification for all that client-side machinery. The humble multi-page architecture, long treated as the boring and slightly embarrassing choice, quietly picked up the one feature it was missing.",
+      "It isn't a total free lunch, and saying otherwise would be dishonest. You're animating real navigations now, so anything that makes those slow — a heavy server response, an uncached page — shows straight through the transition. And like any motion on the web, it has to respect people who've asked for less of it; honoring the reduced-motion preference isn't a nice-to-have, it's the line between a pleasant touch and an accessibility bug you shipped on purpose.",
+      "There's still a real place for single-page apps — genuinely stateful, interaction-dense products where the page is a workspace rather than a document. But the reflexive reach for an SPA 'so the transitions feel nice' is finally over. When the platform grows a feature that lets you delete an entire category of code, that's almost always the right trade to take, and this is one of the clearest examples the web has handed us in years.",
+    ],
+  },
+  {
+    slug: "the-server-is-the-only-source-of-truth",
+    category: "Engineering",
+    title: "The server is the only source of truth",
+    excerpt:
+      "Most security holes we find aren't exotic. They're a price, a permission, or an identity that someone trusted the browser to report honestly.",
+    author: "Evrion Team",
+    date: "2026-06-04",
+    readingTime: "7 min read",
+    body: [
+      "Most of the security problems we find during code reviews aren't exotic. There's no clever cryptography to break and no zero-day to chain together. It's almost always the same quiet mistake wearing slightly different clothes: a value that decides money or access — a price, a permission, an identity — was trusted because it arrived from the browser looking official.",
+      "The pattern is easy to fall into precisely because the insecure version is genuinely less code. The cart already knows the total, so why recompute it on the server? The user's role is right there in the response, so why check it again? The checkout redirect fires after payment, so surely that means they paid? Each shortcut works flawlessly in the demo, which is exactly what makes it so dangerous — the failure only surfaces when someone opens the developer console and edits the number for themselves.",
+      "We reviewed a storefront once where the client sent the price of each item up with the order. Change a value in the request and you could buy anything for a single cent. Nobody had been malicious enough to notice yet, which is the worst kind of secure: not actually safe, just not yet attacked. The fix wasn't a patch, it was a principle — the server reads prices from the database at checkout and treats the incoming cart as a suggestion, never a fact.",
+      "The same principle covers most of the greatest hits. Access should be derived from the authenticated session on the server, never read from a field the client filled in — that's how you stop one user from loading another's data by editing an ID in the URL. A payment isn't confirmed by the page the browser happens to land on; it's confirmed by a signature-verified webhook from the payment provider, checked against the raw request body. Multi-tenant queries get scoped to the current organization so that a foreign ID simply matches zero rows instead of quietly leaking a competitor's data.",
+      "What ties all of it together is a single stance: the browser is an untrusted narrator of its own state. It's a wonderful place to make things fast and pleasant, and a terrible place to make any decision that matters. Everything consequential gets re-derived and re-checked somewhere the user's console can't reach.",
+      "The reason this is worth building as a habit rather than a checklist is that checklists get forgotten under deadline pressure — and that's precisely the moment the shortcut is most tempting. When the architecture is arranged so the secure path is the only path — prices come from the database, access comes from the session, payment comes from the webhook — a forgotten check fails closed instead of open. You stop depending on everyone remembering to be careful, because the system is careful by construction.",
+      "None of this is advanced, and that's really the whole point. The gap between a safe product and a breach is rarely sophistication; it's usually one place where someone trusted the client because it was Tuesday and the deadline was Friday. Getting the boring fundamentals right is most of security, and it's the part that never makes it into the conference talks.",
+    ],
+  },
+  {
+    slug: "performance-is-a-feature-you-can-feel",
+    category: "Performance",
+    title: "Performance is a feature you can feel",
+    excerpt:
+      "Nobody files a bug that says the app feels slightly heavy. They just trust it a little less, and they can't quite tell you why.",
+    author: "Halim Luman",
+    date: "2026-02-12",
+    readingTime: "6 min read",
+    body: [
+      "Performance almost never fails loudly. A page that takes an extra second to become interactive doesn't throw an error or break a flow. It just quietly costs you — a few people bounce, a few more trust the product a little less, and not one of them files a bug that reads 'this felt slightly heavy.' The damage is entirely real and almost completely invisible in your issue tracker.",
+      "That's why we treat speed as a design constraint rather than a cleanup task for the week before launch. The decisions that actually determine how fast a page feels are made early and are expensive to reverse: how much JavaScript ships to the browser, what renders on the server versus the client, which fonts and images sit on the critical path, whether an animation runs on the GPU or fights the main thread. Try to fix those after the fact and you're renovating the foundations; decide them up front and the fast version is simply the one you built.",
+      "It helps to be concrete about what 'fast' even means, because 'it feels fine on my machine' is not a metric — it's a confession. We watch the numbers that map to how a real person experiences a page: how quickly the main content paints, how much the layout lurches around while it loads, and how promptly it responds to that first tap. That last one matters more than it used to; the industry moved to measuring interaction responsiveness directly, and it turned out a lot of sites that scored beautifully on paper felt sluggish the instant you actually touched them.",
+      "A useful discipline is to test on the hardware your users actually hold, not the flagship laptop you happened to build the site on. A mid-range phone on a flaky connection is the real world for a huge share of traffic, and it is ruthless about exposing the heavy JavaScript bundle you never noticed because your machine chewed through it without complaint. The gap between a developer's setup and a user's setup is where most performance problems spend their entire lives hiding.",
+      "The good news is that the platform keeps quietly handing us wins. Server rendering means less code shipped to the client in the first place. Modern image formats and native lazy-loading cut page weight with almost no effort. The heavy hero video that used to be the only way to feel premium can increasingly be a lightweight, scroll-driven scene instead. A lot of performance work in 2026 is less about clever optimization and more about simply declining to opt into the bloat.",
+      "None of this is about shaving milliseconds for a leaderboard. It's that a product which responds the instant you touch it feels considered, and one that hesitates feels improvised — regardless of how much craft went into everything else. Speed is the most invisible way a product can say that someone sweated the details, which is exactly why it's worth the sweat.",
+    ],
+  },
   {
     slug: "ship-the-boring-version-first",
     category: "Process",
@@ -2082,45 +2043,32 @@ export const ARTICLES: Article[] = [
     excerpt:
       "The fastest way to learn whether an idea works is to build the least clever thing that could possibly test it — then earn the right to add the magic.",
     author: "Evrion Team",
-    date: "2026-05-28",
+    date: "2026-01-22",
     readingTime: "5 min read",
     body: [
-      "Every product team we meet has a backlog full of clever ideas and a roadmap that quietly assumes all of them are correct. They rarely are. The expensive mistake isn't building the wrong feature — it's building the polished, animated, edge-case-handled version of the wrong feature before anyone has confirmed it solves a real problem.",
-      "So we start boring on purpose. The first version of almost anything we build does the smallest job that proves the idea is worth pursuing: a single hard-coded flow, a plain table instead of a dashboard, an email instead of a notification system. It feels unsatisfying to ship. It is also the cheapest information you will ever buy.",
-      "Boring-first is not the same as sloppy. The foundations — data model, auth, deployment — are built properly from day one, because those are the parts that are genuinely expensive to change later. What we defer is polish on top of unproven assumptions, not the structure underneath them.",
-      "Once real people touch the boring version, the roadmap rewrites itself. Half the clever ideas turn out to be solving problems nobody had, and the other half get sharper because now there's evidence behind them. That's when polish becomes an investment instead of a gamble — and that's the version worth being proud of.",
-    ],
-  },
-  {
-    slug: "senior-only-is-a-feature-not-a-flex",
-    category: "Studio",
-    title: "Senior-only is a feature, not a flex",
-    excerpt:
-      "Staffing every project with people who've shipped for a decade isn't about ego. It's the cheapest way we've found to protect a timeline.",
-    author: "Evrion Team",
-    date: "2026-04-15",
-    readingTime: "4 min read",
-    body: [
-      "When we tell people every engagement is staffed senior-only, the usual reaction is that it sounds expensive. On a day-rate basis, sure. On a project basis, it's almost always the opposite — because the cost of software isn't the hours spent typing, it's the hours spent undoing decisions that should never have been made.",
-      "Experience mostly shows up as things that don't happen. The migration that didn't corrupt data. The architecture that didn't need a rewrite six months in. The integration that didn't quietly break under load. None of these appear on a status report, which is exactly why they're easy to underprice.",
-      "There's a communication dividend too. Senior people are comfortable saying 'this requirement doesn't make sense' on the first call instead of the last. That single habit removes more wasted work than any process or tool we've ever adopted.",
-      "This is the one rule we started with and won't bend on. Small and senior beats large and layered for the kind of work we want to do — and we'd rather keep a client for the long haul than win a pitch on headcount.",
-    ],
-  },
-  {
-    slug: "design-and-engineering-shouldnt-be-a-handoff",
-    category: "Craft",
-    title: "Design and engineering shouldn't be a handoff",
-    excerpt:
-      "The seam between a design file and a codebase is where most products lose their polish. The fix is to stop treating it as a seam.",
-    author: "Evrion Team",
-    date: "2026-03-02",
-    readingTime: "6 min read",
-    body: [
-      "The traditional pipeline treats design and engineering as two departments connected by a document. Designers produce a perfect static artifact, throw it over the wall, and engineers reconstruct it in code — losing a little fidelity at every step. By launch, the thing that ships is a faded photocopy of the thing that was approved.",
-      "We don't run it that way. Designers and engineers sit on the same project from the first sketch, which means design decisions are pressure-tested against real constraints while they're still cheap to change. An interaction that looks effortless in a prototype but would cost three weeks to build correctly gets caught in a conversation, not a sprint review.",
-      "It also means the details survive. Motion, empty states, loading behavior, the way a layout breaks on a narrow screen — these are the things that make software feel considered, and they're exactly the things that evaporate in a handoff because nobody owns them. When the same small team owns both sides, nothing falls through the gap, because there is no gap.",
-      "The result isn't just a prettier product. It's a faster one to build, because the most expensive bugs — the ones where the design and the implementation quietly disagree — never get created in the first place.",
+      "Every team we meet has a backlog full of clever ideas and a roadmap that quietly assumes all of them are correct. They rarely are. The expensive mistake is almost never building the wrong feature — it's building the polished, animated, edge-case-handled version of the wrong feature before anyone has confirmed it solves a real problem for a real person.",
+      "So we start boring on purpose. The first version of almost anything we build does the smallest job that could prove the idea is worth pursuing: a single hard-coded flow instead of a configurable system, a plain table instead of a dashboard, an email instead of a notification service. It feels unsatisfying to ship something that modest. It is also the cheapest information you will ever buy about whether the idea is any good.",
+      "Boring-first is not the same as sloppy, and the distinction is the whole game. The foundations — data model, auth, deployment, the parts that are genuinely expensive to change later — get built properly from day one. What we defer is the polish layered on top of unproven assumptions, not the structure underneath them. You're cutting speculative features, never corners.",
+      "The payoff arrives the moment real people touch the thing. Half the clever ideas turn out to solve problems nobody actually had, and you're quietly grateful you didn't spend three weeks perfecting them. The other half get sharper, because now there's evidence behind the decisions instead of a confident hunch from a meeting room. The roadmap rewrites itself, and it rewrites itself toward reality.",
+      "This is also, quietly, the more respectful way to spend a client's money. Shipping the boring version fast means they're reacting to something they can click within days, not squinting at a slide deck and hoping. Being wrong on a small, cheap version is a Tuesday; being wrong on a big, polished one is a crisis with a budget attached. We would rather have the cheap Tuesdays, every time.",
+      "Once the boring version has earned its keep, polish stops being a gamble and becomes an investment — you're making something better that you now know people actually want. That's the version worth being proud of, and it's usually nothing like the impressive-looking thing you'd have built if you had started with the magic instead of earning your way to it.",
     ],
   },
 ];
+
+/**
+ * Permanent 1-based index for each article, assigned by publication order
+ * (oldest = 1). It stays stable as newer articles are added, so the highest
+ * number always equals the total number of published articles — a running
+ * count of "where we started and how many we have."
+ */
+const ARTICLE_ORDER: Record<string, number> = Object.fromEntries(
+  [...ARTICLES]
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+    .map((article, i) => [article.slug, i + 1])
+);
+
+/** Zero-padded chronological number for an article card, e.g. "01". */
+export function articleNumber(slug: string): string {
+  return String(ARTICLE_ORDER[slug] ?? 0).padStart(2, "0");
+}

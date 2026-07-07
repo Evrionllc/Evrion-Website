@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
-import ArticleModal from "@/components/ui/ArticleModal";
-import { ARTICLES, type Article } from "@/lib/data";
+import { ARTICLES, articleNumber } from "@/lib/data";
 
 /** Short date for cards, e.g. "May 2026". */
 function formatDate(iso: string) {
@@ -15,10 +14,8 @@ function formatDate(iso: string) {
   });
 }
 
-/** Writing from the studio — each card opens a full reader modal. */
+/** Writing from the studio — each card links to its own /blog/[slug] route. */
 export default function Articles() {
-  const [active, setActive] = useState<Article | null>(null);
-
   return (
     <section aria-label="Writing" className="relative py-20 sm:py-40">
       <div className="container-x">
@@ -43,9 +40,8 @@ export default function Articles() {
               viewport={{ once: true, margin: "-8%" }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             >
-              <button
-                type="button"
-                onClick={() => setActive(article)}
+              <Link
+                href={`/blog/${article.slug}`}
                 aria-label={`Read “${article.title}”`}
                 className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-line bg-elevated p-8 text-left transition-colors duration-500 hover:border-mint/30"
               >
@@ -75,15 +71,16 @@ export default function Articles() {
                     <span>{formatDate(article.date)}</span>
                     <span aria-hidden="true">·</span>
                     <span>{article.readingTime}</span>
+                    <span className="ml-auto text-mint">
+                      {articleNumber(article.slug)}
+                    </span>
                   </div>
                 </div>
-              </button>
+              </Link>
             </motion.li>
           ))}
         </ul>
       </div>
-
-      <ArticleModal article={active} onClose={() => setActive(null)} />
     </section>
   );
 }

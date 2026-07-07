@@ -36,6 +36,12 @@ export default function ChatWidget() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  // Let sibling floating widgets (e.g. WhatsAppWidget) react to the concierge
+  // opening so they can get out of the way.
+  useEffect(() => {
+    window.dispatchEvent(new CustomEvent("concierge:toggle", { detail: open }));
+  }, [open]);
+
   // Close on Escape.
   useEffect(() => {
     if (!open) return;

@@ -116,7 +116,7 @@ export default function CaseStudy({ project }: { project: Project }) {
 
         {/* Supporting imagery */}
         {gallery.length > 0 && (
-          <div className="mt-28 sm:mt-36">
+          <div className="mx-auto mt-28 max-w-5xl sm:mt-36">
             <p className="mb-10 font-mono text-xs tracking-[0.3em] text-mint uppercase">
               {"// "}Gallery
             </p>
@@ -127,7 +127,7 @@ export default function CaseStudy({ project }: { project: Project }) {
                   item={item}
                   project={project}
                   variant={i}
-                  className="aspect-[16/9]"
+                  className="aspect-video"
                 />
               ))}
               {tiles.length > 0 && (
@@ -138,7 +138,7 @@ export default function CaseStudy({ project }: { project: Project }) {
                       item={item}
                       project={project}
                       variant={i + 1}
-                      className="aspect-[4/3]"
+                      className="aspect-[5/4]"
                     />
                   ))}
                 </div>

@@ -43,8 +43,8 @@ export default function Technologies() {
       </div>
 
       <p className="container-x mt-14 text-center text-sm text-muted">
-        Framework-agnostic by principle — we choose the stack your product
-        deserves, not the one we feel like using.
+        We choose the stack your product needs, not the one that&rsquo;s
+        convenient.
       </p>
     </section>
   );

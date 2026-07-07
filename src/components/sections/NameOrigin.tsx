@@ -23,7 +23,7 @@ export default function NameOrigin() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-8 max-w-md text-sm leading-relaxed text-muted sm:text-base"
+            className="mt-8 max-w-md text-sm leading-relaxed text-foreground/80 sm:text-[1rem]"
           >
             A name carries intent. Ours reaches back to an old word — and
             forward to what we&apos;re here to build.
@@ -35,7 +35,7 @@ export default function NameOrigin() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-6%" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="flex max-w-2xl flex-col gap-6 text-base leading-relaxed text-muted sm:text-lg"
+          className="flex max-w-2xl flex-col gap-6 text-base leading-relaxed text-foreground/80 sm:text-lg"
         >
           <p>
             Evrion is inspired by{" "}

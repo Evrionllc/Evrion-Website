@@ -15,11 +15,11 @@ type FluidFrameProps = {
 };
 
 /**
- * Scroll-scrubbed reveal that feels like the image is being pulled open from
- * a single point: the clip window starts as a small patch pinned to one
- * corner and unfurls to the full frame, while the artwork inside counter-
- * scales (with a slight settling rotation) from that same point. Scrubbing
- * ties it to the scroll position, so it stretches and relaxes with your hand.
+ * Scroll-scrubbed reveal: the frame wipes open upward from its lower edge
+ * while the artwork inside settles from a gentle overscale and a small rise,
+ * anchored to the bottom corner nearest its text column. No rotation, modest
+ * scale — a calm, editorial reveal rather than a flourish. Scrubbing ties the
+ * whole thing to scroll position so it eases in as the card enters view.
  */
 export default function FluidFrame({
   children,
@@ -38,35 +38,28 @@ export default function FluidFrame({
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: frameRef.current,
-          start: "top 94%",
-          end: "top 42%",
+          start: "top 90%",
+          end: "top 55%",
           scrub: 1,
         },
       });
 
       tl.fromTo(
         frameRef.current,
+        { clipPath: "inset(14% 0% 0% 0% round 16px)", opacity: 0 },
         {
-          clipPath: left
-            ? "inset(0% 76% 62% 0% round 24px)"
-            : "inset(0% 0% 62% 76% round 24px)",
+          clipPath: "inset(0% 0% 0% 0% round 16px)",
+          opacity: 1,
+          ease: "power2.out",
+          duration: 1,
         },
-        { clipPath: "inset(0% 0% 0% 0% round 16px)", ease: "none", duration: 1 },
         0
-      )
-        .fromTo(
-          scaleRef.current,
-          { scale: 1.45, transformOrigin: left ? "0% 0%" : "100% 0%" },
-          { scale: 1, ease: "none", duration: 1 },
-          0
-        )
-        // the tilt settles early so edges never peek out of the clip
-        .fromTo(
-          scaleRef.current,
-          { rotate: left ? -3.5 : 3.5 },
-          { rotate: 0, ease: "power2.out", duration: 0.7 },
-          0
-        );
+      ).fromTo(
+        scaleRef.current,
+        { scale: 1.06, yPercent: 4, transformOrigin: left ? "0% 100%" : "100% 100%" },
+        { scale: 1, yPercent: 0, ease: "power2.out", duration: 1 },
+        0
+      );
 
       return () => {
         tl.scrollTrigger?.kill();

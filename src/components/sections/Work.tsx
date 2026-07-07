@@ -50,12 +50,12 @@ function ProjectCard({ project, flip }: { project: Project; flip: boolean }) {
       <Link
         href={`/work/${project.slug}`}
         aria-label={`${project.title} case study`}
-        className="block lg:col-span-7"
+        className="block lg:col-span-5 xl:col-span-5"
       >
         {/* the visual unfurls from the corner nearest its text column */}
         <FluidFrame
           origin={flip ? "right" : "left"}
-          className="relative aspect-[4/3] sm:aspect-[16/10]"
+          className="relative aspect-[5/4] sm:aspect-16/10 lg:mx-auto lg:max-w-130"
         >
           <div
             ref={visualRef}
@@ -63,7 +63,7 @@ function ProjectCard({ project, flip }: { project: Project; flip: boolean }) {
           >
             <div
               ref={innerRef}
-              className="absolute -inset-y-[12%] inset-x-0 transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              className="absolute -inset-y-[12%] inset-x-0 transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             >
               {project.heroImage ? (
                 /* Real project screenshot */
@@ -108,11 +108,11 @@ function ProjectCard({ project, flip }: { project: Project; flip: boolean }) {
       </Link>
 
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10%" }}
-        transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="lg:col-span-5"
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        className="lg:col-span-7 xl:col-span-7"
       >
         <p className="font-mono text-xs tracking-[0.3em] text-mint uppercase">
           {project.category}
@@ -120,7 +120,7 @@ function ProjectCard({ project, flip }: { project: Project; flip: boolean }) {
         <h3 className="mt-4 font-display text-3xl font-medium tracking-tight sm:text-4xl">
           {project.title}
         </h3>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-muted sm:text-base">
+        <p className="mt-4 max-w-md text-sm leading-relaxed text-foreground/80">
           {project.description}
         </p>
         <p className="mt-6 font-mono text-xs text-faint">{project.year}</p>
@@ -145,12 +145,11 @@ export default function Work({ limit, showAllLink }: WorkProps) {
         <div className="mb-16 flex flex-wrap items-end justify-between gap-6 sm:mb-24">
           <SectionHeading
             label="Featured Work"
-            title="Selected projects, real outcomes"
+            title="Selected projects."
             className="max-w-2xl"
           />
           <p className="max-w-xs text-sm leading-relaxed text-muted">
-            A few of the products we&apos;ve designed, engineered, and shipped
-            alongside our partners.
+            Every project is an opportunity to prove that quality, precision, and thoughtful engineering make a difference.
           </p>
         </div>
 
