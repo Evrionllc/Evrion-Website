@@ -205,6 +205,7 @@ export const PROJECTS: Project[] = [
     hue: "from-sky-500/40 via-blue-600/20 to-transparent",
     accent: "#38bdf8",
     repo: "https://github.com/Evrionllc/Weather-Website",
+    liveUrl: "https://skylineweathers.vercel.app",
     heroImage: "/work/skyline/hero.png",
     meta: [
       { label: "Project", value: "Skyline" },
@@ -256,8 +257,8 @@ export const PROJECTS: Project[] = [
     ],
     gallery: [
       { src: "/work/skyline/1.png", caption: "The weather dashboard — conditions, forecast & derived insights", span: "wide" },
-      { src: "/work/skyline/2.png", caption: "Hourly forecast and temperature chart" },
-      { src: "/work/skyline/3.png", caption: "Air quality, radar, and sun & moon data" },
+      { src: "/work/skyline/2.png", caption: "Hourly chart, 10-day outlook, air quality & run conditions" },
+      { src: "/work/skyline/3.png", caption: "The animated precipitation radar" },
     ],
   },
   {
@@ -271,12 +272,13 @@ export const PROJECTS: Project[] = [
     hue: "from-red-500/40 via-orange-600/20 to-transparent",
     accent: "#f97316",
     repo: "https://github.com/Evrionllc/Car-Dealer-Website",
+    liveUrl: "https://apex-auto-group.vercel.app",
     heroImage: "/work/apex-auto/hero.png",
     meta: [
       { label: "Project", value: "Apex Auto Group" },
       { label: "Year", value: "2026" },
       { label: "Discipline", value: "Full-Stack Web" },
-      { label: "Stack", value: "Next.js · Prisma · SQLite" },
+      { label: "Stack", value: "Next.js · Prisma · Turso" },
     ],
     sections: [
       {
@@ -307,7 +309,7 @@ export const PROJECTS: Project[] = [
         id: "outcome",
         label: "Outcome",
         body: [
-          "The result runs end-to-end out of the box: seed the SQLite database and you have a browsable showroom with featured vehicles, browse-by-body-type, a clearly-labeled payment estimator, side-by-side compare of up to three cars, and saved favorites.",
+          "The showroom now runs live on real data: an import pipeline pulls around 120 genuine used-car listings from the auto.dev API — real dealer photos, VIN-decoded engine, transmission, and drivetrain specs — across sixteen makes. On top of that inventory sit featured vehicles, browse-by-body-type, a clearly-labeled payment estimator, side-by-side compare of up to three cars, and saved favorites.",
           "Admins get full vehicle CRUD with available/pending/sold and featured toggles, multi-image upload with reorder and set-primary, and a lead inbox with a new → contacted → closed workflow. SEO is wired throughout — per-vehicle metadata, schema.org Car data, sitemap, and robots.",
         ],
       },
@@ -315,13 +317,13 @@ export const PROJECTS: Project[] = [
         id: "technical-detail",
         label: "Technical Detail",
         body: [
-          "Next.js 16 (App Router) with TypeScript and Tailwind CSS v4, backed by Prisma 7 over SQLite for a zero-config local database. External services — Resend for email, Cloudinary for images, maps — are wired with real integrations that fall back to sensible local behavior when no keys are set.",
+          "Next.js 16 (App Router) with TypeScript and Tailwind CSS v4, backed by Prisma 7 through driver adapters — zero-config SQLite locally, a hosted Turso (libSQL) database in production — so the deployed site runs the same code against a serverless-friendly store. External services — Resend for email, Cloudinary for images, maps — are wired with real integrations that fall back to sensible local behavior when no keys are set.",
           "Auth is hand-rolled on `jose` JWTs in httpOnly cookies with bcrypt hashing, and every admin route is gated in middleware so protection doesn't depend on the UI hiding a link.",
         ],
       },
     ],
     gallery: [
-      { src: "/work/apex-auto/1.png", caption: "Inventory with server-side filtering, sort & search", span: "wide" },
+      { src: "/work/apex-auto/1.png", caption: "The live inventory — real listings with server-side filtering & search", span: "wide" },
       { src: "/work/apex-auto/2.png", caption: "Vehicle detail — gallery, specs, and inquiry forms" },
       { src: "/work/apex-auto/3.png", caption: "Financing & payment calculator" },
     ],
@@ -403,6 +405,7 @@ export const PROJECTS: Project[] = [
     hue: "from-amber-500/40 via-orange-700/20 to-transparent",
     accent: "#f59e0b",
     repo: "https://github.com/Evrionllc/E-commerce-Website",
+    liveUrl: "https://emberhaus-flame.vercel.app",
     heroImage: "/work/emberhaus/hero.png",
     meta: [
       { label: "Project", value: "Emberhaus" },
@@ -440,6 +443,7 @@ export const PROJECTS: Project[] = [
         label: "Outcome",
         body: [
           "Emberhaus is a complete, end-to-end commerce flow — catalog, cart, checkout, order confirmation, and an account view — that's honest about where trust lives. No real money moves, but the architecture is the one you'd ship if it did.",
+          "A visual pass grew it into a full roaster's site: a single-origin lineup spanning a dozen origins, each bag carrying roast level, tasting notes, process, and a flavor profile, with About, brewing-guide, and FAQ pages around the shop itself.",
           "Even the product imagery is self-generated SVG and every brand name invented, so the whole thing runs cleanly with no licensing baggage.",
         ],
       },
@@ -453,9 +457,9 @@ export const PROJECTS: Project[] = [
       },
     ],
     gallery: [
-      { src: "/work/emberhaus/1.png", caption: "The storefront — the roaster's product catalog", span: "wide" },
+      { src: "/work/emberhaus/1.png", caption: "The full storefront — blends, single origins, reserve lot & equipment", span: "wide" },
       { src: "/work/emberhaus/2.png", caption: "Product detail — House Blend" },
-      { src: "/work/emberhaus/3.png", caption: "Product detail — Nightfall Dark Roast" },
+      { src: "/work/emberhaus/3.png", caption: "Product detail — Ethiopia Guji Natural, tasting notes & roast level" },
     ],
   },
   {
@@ -597,10 +601,11 @@ export const PROJECTS: Project[] = [
     category: "Web App · Interactive Simulation",
     year: "2025",
     description:
-      "An interactive physics simulator: five classical-mechanics models running in real time on a shared fixed-timestep RK4 integrator, each with live charts, adjustable parameters, and selectable planetary gravity.",
+      "An interactive physics simulator: nine real-time models — from springs and projectiles to N-body gravity, wave interference, and kinetic gas theory — on a shared fixed-timestep RK4 integrator with live charts, adjustable parameters, and selectable planetary gravity.",
     hue: "from-cyan-500/40 via-teal-600/20 to-transparent",
     accent: "#22d3ee",
     repo: "https://github.com/Evrionllc/Physics-Simulator-Website",
+    liveUrl: "https://physicslab-snowy.vercel.app",
     heroImage: "/work/physics-lab/hero.png",
     meta: [
       { label: "Project", value: "Physics·Lab" },
@@ -613,7 +618,7 @@ export const PROJECTS: Project[] = [
         id: "context",
         label: "Context",
         body: [
-          "Physics·Lab turns the browser into a working mechanics lab. Five classical simulations — a damped spring, projectile motion, energy in a bouncing ball, a double pendulum, and orbital mechanics — run live, each with adjustable parameters, preset scenarios, and charts that update as the system evolves.",
+          "Physics·Lab turns the browser into a working physics lab. Nine simulations across four wings — mechanics (spring, projectile, bouncing ball), chaos & gravity (double pendulum, Kepler orbits, N-body), waves (interference, pendulum wave), and statistical physics (kinetic gas theory) — run live, each with adjustable parameters, preset scenarios, and charts that update as the system evolves.",
           "It's the kind of thing that's easy to fake with canned animations and genuinely hard to do right: real numerical integration that stays stable, conserves what it should, and reveals chaos where it should.",
         ],
       },
@@ -637,7 +642,7 @@ export const PROJECTS: Project[] = [
         id: "outcome",
         label: "Outcome",
         body: [
-          "The undamped spring validates the integrator against the known analytic solution; orbital mechanics conserves energy and angular momentum and traces clean Kepler ellipses; twin double-pendulum runs visibly diverge to demonstrate deterministic chaos. The physics is correct, not just pretty.",
+          "The undamped spring validates the integrator against the known analytic solution; orbital mechanics conserves energy and angular momentum and traces clean Kepler ellipses; twin double-pendulum runs visibly diverge to demonstrate deterministic chaos. The newer wings push further: the N-body sim reproduces the famous figure-8 three-body choreography, and hundreds of colliding gas molecules settle onto the Maxwell–Boltzmann speed distribution. The physics is correct, not just pretty.",
           "Because the math is isolated in pure functions, it's covered by tests and could be lifted straight into another project — a small simulation engine that happens to ship with a polished dashboard around it.",
         ],
       },
@@ -645,15 +650,15 @@ export const PROJECTS: Project[] = [
         id: "technical-detail",
         label: "Technical Detail",
         body: [
-          "React + Vite with React Router and Recharts. The core is a pure RK4 integrator with one math module per model under `src/physics`, unit-tested in isolation; custom hooks handle the fixed-timestep animation loop, responsive canvas sizing, throttled chart buffers, and cross-sim stats.",
+          "React + Vite with React Router and Recharts. The core is a pure RK4 integrator with one math module per model under `src/physics`, unit-tested in isolation; a shared canvas renderer and custom hooks handle the fixed-timestep animation loop, responsive high-DPI drawing, throttled chart buffers, and cross-sim stats.",
           "Planetary gravity data is fetched with a cache and an offline fallback, so swapping the gravity constant per simulation never blocks the render.",
         ],
       },
     ],
     gallery: [
       { src: "/work/physics-lab/1.png", caption: "Projectile motion against the ideal vacuum parabola", span: "wide" },
-      { src: "/work/physics-lab/2.png", caption: "Double pendulum — twin runs revealing chaos" },
-      { src: "/work/physics-lab/3.png", caption: "Orbital mechanics — conserved energy & angular momentum" },
+      { src: "/work/physics-lab/2.png", caption: "N-body gravity — the figure-8 three-body choreography" },
+      { src: "/work/physics-lab/3.png", caption: "Kinetic gas theory — pressure emerging from pure collisions" },
     ],
   },
 ];
@@ -1083,6 +1088,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     hue: "from-violet-500/40 via-purple-600/20 to-transparent",
     accent: "#7c5cfc",
     repo: "https://github.com/Evrionllc/SaaS-Landing-Page",
+    liveUrl: "https://klok-orpin.vercel.app",
     heroImage: "/work/klok/hero.png",
     meta: [
       { label: "Project", value: "Klok" },
@@ -1120,6 +1126,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
         label: "Outcome",
         body: [
           "The result is a fully responsive, accessible, conversion-focused landing page that demonstrates front-end fundamentals and design-systems thinking — every brand, quote, and statistic invented, with licensing documented in CREDITS.",
+          "A later polish pass took it beyond a single page: login and sign-up flows with real validation, loading, and success states, a self-running animated product tour built in pure HTML, CSS, and JS instead of a video asset, and proper privacy and terms pages — the connective tissue that makes a landing page feel like a product.",
           "It's the kind of page that proves a point: restraint, hierarchy, and a single well-used accent often beat decoration.",
         ],
       },
@@ -1135,7 +1142,7 @@ export const WORK_ARCHIVE: ArchiveProject[] = [
     gallery: [
       { src: "/work/klok/1.png", caption: "The full landing page, top to bottom", span: "wide" },
       { src: "/work/klok/2.png", caption: "Feature sections with the reserved violet accent" },
-      { src: "/work/klok/3.png", caption: "Pricing — Solo to Collective" },
+      { src: "/work/klok/3.png", caption: "Sign-up — plan picker with validated forms" },
     ],
   },
   {
