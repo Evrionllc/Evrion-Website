@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     "digital agency",
     "web design",
     "software development",
-    "SaaS development",
     "mobile app development",
     "UI/UX design",
     "engineering support",

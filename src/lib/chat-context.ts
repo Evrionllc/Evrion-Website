@@ -1,7 +1,7 @@
 import {
   SITE,
-  SERVICES,
-  PRICING_TIERS,
+  VISIBLE_SERVICES,
+  VISIBLE_PRICING_TIERS,
   SERVICE_FLOW,
   PROJECTS,
   WORK_ARCHIVE,
@@ -14,11 +14,11 @@ import {
  * rather than inventing them. Imported server-side only (in the API route).
  */
 export function buildSystemPrompt(): string {
-  const services = SERVICES.map(
+  const services = VISIBLE_SERVICES.map(
     (s) => `- ${s.title}: ${s.description} (${s.tags.join(", ")})`
   ).join("\n");
 
-  const pricing = PRICING_TIERS.map(
+  const pricing = VISIBLE_PRICING_TIERS.map(
     (t) =>
       `- ${t.name} — ${t.summary} Build: ${t.buildPrice}, timeline ${t.timeline}, maintenance ${t.maintenanceFee}.`
   ).join("\n");

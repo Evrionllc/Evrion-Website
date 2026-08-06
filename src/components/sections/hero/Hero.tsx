@@ -15,11 +15,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const KEYWORDS = [
   "Web Design",
-  "SaaS Development",
   "Mobile Apps",
   "UI/UX Design",
   "Engineering Support",
-  "Custom Software",
   "Technical Consulting",
 ];
 

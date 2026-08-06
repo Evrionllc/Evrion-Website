@@ -32,6 +32,8 @@ export type Service = {
   /** How we work — shown as the "Approach" block in the detail modal */
   approach: string;
   tags: string[];
+  /** Temporarily withheld from the site (kept in source for later). */
+  hidden?: boolean;
 };
 
 export const SERVICES: Service[] = [
@@ -70,6 +72,8 @@ export const SERVICES: Service[] = [
     approach:
       "We focus on structure and maintainability from day one, ensuring systems remain understandable as they grow.",
     tags: ["SaaS Platforms", "APIs & Integrations", "Cloud Architecture"],
+    // Temporarily hidden while we scale the team — restore by removing this flag.
+    hidden: true,
   },
   {
     index: "03",
@@ -146,6 +150,15 @@ export const SERVICES: Service[] = [
     tags: ["Architecture", "Audits", "Strategy"],
   },
 ];
+
+/**
+ * Services actually shown on the site: hidden entries are dropped and the
+ * numbered `index` is re-sequenced so the list reads 01, 02, 03… with no gaps.
+ * Un-hide a service in SERVICES and it re-numbers automatically.
+ */
+export const VISIBLE_SERVICES: Service[] = SERVICES.filter(
+  (s) => !s.hidden
+).map((s, i) => ({ ...s, index: String(i + 1).padStart(2, "0") }));
 
 /** One section of a project case study, rendered on the project detail page. */
 export type CaseStudySection = {
@@ -1568,6 +1581,8 @@ export type PricingTier = {
   /** Optional per-tier callouts (e.g. "Good to know", "Timeline note") */
   notes?: { label: string; body: string }[];
   featured?: boolean;
+  /** Temporarily withheld from the site (kept in source for later). */
+  hidden?: boolean;
 };
 
 export const PRICING_TIERS: PricingTier[] = [
@@ -1669,7 +1684,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Copywriting",
       "Branding",
       "Migration beyond 10 pages",
-      "Custom user accounts (that's Tier 6)",
+      "Custom user accounts and application logic",
     ],
     payment: "50% to start, 50% at launch.",
     featured: true,
@@ -1699,6 +1714,7 @@ export const PRICING_TIERS: PricingTier[] = [
       "Platform subscription fees (e.g. Shopify's plan) and payment-processor fees — billed to you directly by those providers",
     ],
     payment: "50% to start, 50% at launch.",
+    featured: true,
   },
   {
     tier: "Tier 6",
@@ -1724,7 +1740,9 @@ export const PRICING_TIERS: PricingTier[] = [
     ],
     payment:
       "50% to start, 50% at launch. On request, larger builds can split 50/25/25, with the middle payment at approval of core functionality.",
-    featured: true,
+    // Temporarily hidden while we scale the team — restore by removing this flag
+    // (and re-add `featured: true` if you want it back in the highlight cards).
+    hidden: true,
   },
   {
     tier: "Tier 7",
@@ -1746,6 +1764,8 @@ export const PRICING_TIERS: PricingTier[] = [
     notIncluded: [],
     payment:
       "50% to start; the remaining 50% is tied to milestones in the feature list (typically 50/25/25).",
+    // Temporarily hidden while we scale the team — restore by removing this flag.
+    hidden: true,
     notes: [
       {
         label: "What an MVP means here",
@@ -1788,6 +1808,15 @@ export const PRICING_TIERS: PricingTier[] = [
   },
 ];
 
+/**
+ * Pricing tiers actually shown on the site: hidden tiers are dropped and the
+ * `tier` label is re-sequenced ("Tier 1", "Tier 2", …) so the visible list has
+ * no gaps. Un-hide a tier in PRICING_TIERS and the numbering fixes itself.
+ */
+export const VISIBLE_PRICING_TIERS: PricingTier[] = PRICING_TIERS.filter(
+  (t) => !t.hidden
+).map((t, i) => ({ ...t, tier: `Tier ${i + 1}` }));
+
 export type PricingSection = {
   title: string;
   body: string[];
@@ -1801,7 +1830,7 @@ export const PRICING_SECTIONS: PricingSection[] = [
   {
     title: "How payment works",
     body: [
-      "Simple and standard: 50% to start, 50% at launch. No hidden fees, no hourly surprises on fixed-scope projects. Larger builds (Custom Apps, SaaS, Mobile) split the final half into milestones — you pay as you see working results, exactly as spelled out in your quote. And before any payment at all, you get a free discovery call and a fixed written quote, so you know precisely what you're buying.",
+      "Simple and standard: 50% to start, 50% at launch. No hidden fees, no hourly surprises on fixed-scope projects. Larger builds (like Mobile apps) split the final half into milestones — you pay as you see working results, exactly as spelled out in your quote. And before any payment at all, you get a free discovery call and a fixed written quote, so you know precisely what you're buying.",
       "Scope changes: anything outside the signed scope is quoted in writing before we build it. Pauses & cancellation: if a project is cancelled or paused by the client for more than 30 days, completed work is billed at $140/hr against payments made, and resumed projects are re-scheduled into our queue. Timelines assume client feedback within 3 business days; delays on content or feedback extend the schedule, not the price.",
     ],
   },
@@ -1895,12 +1924,12 @@ export const FAQS: FaqItem[] = [
   {
     question: "What does a typical project cost?",
     answer:
-      "Landing pages run $600–$1.5k and business websites $1.8k–$7.5k depending on size and CMS needs. E-commerce stores land between $7.5k and $15k, custom web applications between $14k and $28k, and SaaS MVPs from $25k to $55k+. Mobile apps run $18k–$45k. After one scoping call we'll give you a precise, honest estimate — never a teaser number.",
+      "Landing pages run $600–$1.5k and business websites $1.8k–$7.5k depending on size and CMS needs. E-commerce stores land between $7.5k and $15k, and mobile apps run $18k–$45k. After one scoping call we'll give you a precise, honest estimate — never a teaser number.",
   },
   {
     question: "How long until we can launch?",
     answer:
-      "A landing page ships in about a week, business websites in two to five weeks, and e-commerce stores in four to eight. A custom web application takes six to ten weeks, and a SaaS MVP or mobile app typically runs eight to fourteen, depending on scope. We'd rather give you a real date and hit it than promise magic.",
+      "A landing page ships in about a week, business websites in two to five weeks, and e-commerce stores in four to eight. Mobile apps typically run eight to fourteen weeks, depending on scope. We'd rather give you a real date and hit it than promise magic.",
   },
   {
     question: "Do you work with our in-house team?",

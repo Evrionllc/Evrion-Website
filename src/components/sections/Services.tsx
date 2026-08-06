@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import ServiceModal from "@/components/ui/ServiceModal";
-import { SERVICES, type Service } from "@/lib/data";
+import { VISIBLE_SERVICES, type Service } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 /**
@@ -27,7 +27,7 @@ export default function Services({ expandable = false }: { expandable?: boolean 
         />
 
         <ul>
-          {SERVICES.map((service, i) => (
+          {VISIBLE_SERVICES.map((service, i) => (
             <motion.li
               key={service.index}
               id={`service-${service.index}`}

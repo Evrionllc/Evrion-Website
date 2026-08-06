@@ -6,7 +6,7 @@ import { Check, Info, Plus } from "lucide-react";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PricingTierModal from "@/components/ui/PricingTierModal";
 import {
-  PRICING_TIERS,
+  VISIBLE_PRICING_TIERS,
   PRICING_SECTIONS,
   PRICING_DISCLAIMER,
   type PricingTier,
@@ -15,15 +15,16 @@ import { cn } from "@/lib/utils";
 
 /**
  * Pricing on the Services page: three featured tiers in highlight cards, then
- * the full Tier 1–8 table below. Every card and row opens a detail modal.
- * All prices are framed as general guidelines, scoped per project.
+ * the full tier table below (renumbered from the visible tiers). Every card and
+ * row opens a detail modal. All prices are framed as general guidelines, scoped
+ * per project.
  */
 export default function Pricing() {
   const [active, setActive] = useState<PricingTier | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
   const [openSection, setOpenSection] = useState<number | null>(null);
 
-  const featured = PRICING_TIERS.filter((t) => t.featured);
+  const featured = VISIBLE_PRICING_TIERS.filter((t) => t.featured);
 
   return (
     <section
@@ -58,7 +59,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* Featured tiers — Tier 3, 4, 6 */}
+        {/* Featured tiers — Business Website, Professional Website + CMS, E-commerce */}
         <div className="grid gap-6 lg:grid-cols-3">
           {featured.map((tier, i) => (
             <motion.article
@@ -123,7 +124,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* Full tier list — Tier 1–8 */}
+        {/* Full tier list */}
         <div className="mt-20 sm:mt-28">
           <h3 className="font-display text-2xl font-medium tracking-tight sm:text-3xl">
             All build tiers
@@ -139,7 +140,7 @@ export default function Pricing() {
           </div>
 
           <ul>
-            {PRICING_TIERS.map((tier, i) => (
+            {VISIBLE_PRICING_TIERS.map((tier, i) => (
               <motion.li
                 key={tier.tier}
                 initial={{ opacity: 0, y: 24 }}
